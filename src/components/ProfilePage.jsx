@@ -4,6 +4,7 @@ import { getUserAction } from "../redux/actions";
 import { Col, Container, Row } from "react-bootstrap";
 import ProfilePic from "./ProfilePic";
 import CoverPic from "./CoverPic";
+import HeroHead from "./HeroHead";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -16,8 +17,7 @@ const ProfilePage = () => {
   return (
     <Row>
       <Col xs="12" md="9">
-        <CoverPic />
-        <ProfilePic />
+        <HeroHead />
       </Col>
       <Col md="3" className="d-none d-md-block"></Col>
     </Row>

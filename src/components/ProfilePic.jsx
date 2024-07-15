@@ -6,9 +6,10 @@ const ProfilePic = () => {
   return (
     profile && (
       <Image
+        id="profile-pic"
         src={profile.image}
         alt="profile-picture"
-        className="rounded-circle border border-white border-3"
+        className="rounded-circle border border-white border-5 position-absolute"
         width={"150px"}
         height={"150px"}
       />

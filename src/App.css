@@ -1,3 +1,7 @@
 body {
   background-color: #f4f2ee;
+  #profile-pic {
+    left: 25px;
+    bottom: -50px;
+  }
 }
