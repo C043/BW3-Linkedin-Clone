@@ -6,6 +6,7 @@ import ContentBox from "./ContentBox";
 import ExperienceCard from "./ExperienceCard";
 import AnalisysContent from "./AnalisysContent";
 import ResourcesContent from "./ResourcesContent";
+import EducationContent from "./EducationContent";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const ProfilePage = () => {
         <ContentBox title={"Analisi"} content={<AnalisysContent />} privacy />
         <ContentBox title={"Risorse"} content={<ResourcesContent />} privacy />
         <ContentBox title={"Esperienza"} content={<ExperienceCard />} editable />
-        <ContentBox title={"Formazione"} content={<ExperienceCard />} editable />
+        <ContentBox title={"Formazione"} content={<EducationContent />} editable />
       </Col>
       <Col md="3" className="d-none d-md-block"></Col>
     </Row>

@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import { BarChartLineFill, PersonFill, Search } from "react-bootstrap-icons";
+import OtherInfo from "./OtherInfo";
 
 const AnalisysContent = () => {
   return (
@@ -37,6 +38,7 @@ const AnalisysContent = () => {
           </Col>
         </Row>
       </Col>
+      <OtherInfo />
     </Row>
   );
 };
