@@ -8,6 +8,7 @@ import AnalisysContent from "./AnalisysContent";
 import ResourcesContent from "./ResourcesContent";
 import EducationContent from "./EducationContent";
 import Hero from "./Hero";
+import FooterComponent from "./FooterComponent";
 import SideBar from "./SideBar";
 
 const ProfilePage = () => {
@@ -30,6 +31,7 @@ const ProfilePage = () => {
       <Col md="5" lg="4" className="d-none d-md-block">
         <SideBar />
       </Col>
+      <FooterComponent />
     </Row>
   );
 };
