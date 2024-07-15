@@ -8,6 +8,7 @@ import AnalisysContent from "./AnalisysContent";
 import ResourcesContent from "./ResourcesContent";
 import EducationContent from "./EducationContent";
 import Hero from "./Hero";
+import SideBar from "./SideBar";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,9 @@ const ProfilePage = () => {
         <ContentBox title={"Esperienza"} content={<ExperienceCard />} editable />
         <ContentBox title={"Formazione"} content={<EducationContent />} editable />
       </Col>
-      <Col md="3" className="d-none d-md-block"></Col>
+      <Col md="3" className="d-none d-md-block">
+        <SideBar />
+      </Col>
     </Row>
   );
 };
