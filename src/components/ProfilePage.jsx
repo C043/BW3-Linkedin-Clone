@@ -12,12 +12,10 @@ const ProfilePage = () => {
   }, []);
 
   return (
-    <Container>
-      <Row>
-        <Col xs="12" md="9"></Col>
-        <Col md="3" className="d-none d-md-block"></Col>
-      </Row>
-    </Container>
+    <Row>
+      <Col xs="12" md="9"></Col>
+      <Col md="3" className="d-none d-md-block"></Col>
+    </Row>
   );
 };
 
