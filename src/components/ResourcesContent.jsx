@@ -19,7 +19,7 @@ const ResourcesContent = () => {
         </div>
         <p className="ms-4">Monitora le tue offerte di lavoro, i corsi e gli articoli.</p>
       </Col>
-      <OtherInfo />
+      <OtherInfo border />
     </Row>
   );
 };

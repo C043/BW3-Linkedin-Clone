@@ -20,14 +20,14 @@ const ProfilePage = () => {
 
   return (
     <Row>
-      <Col xs="12" md="9">
+      <Col xs="12" md="7" lg="8">
         <Hero />
         <ContentBox title={"Analisi"} content={<AnalisysContent />} privacy />
         <ContentBox title={"Risorse"} content={<ResourcesContent />} privacy />
         <ContentBox title={"Esperienza"} content={<ExperienceCard />} editable />
         <ContentBox title={"Formazione"} content={<EducationContent />} editable />
       </Col>
-      <Col md="3" className="d-none d-md-block">
+      <Col md="5" lg="4" className="d-none d-md-block">
         <SideBar />
       </Col>
     </Row>

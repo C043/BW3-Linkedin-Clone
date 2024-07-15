@@ -25,7 +25,7 @@ const EducationContent = () => {
           time={"2024 - Presente"}
         />
       </Col>
-      <OtherInfo />
+      <OtherInfo border />
     </Row>
   );
 };
