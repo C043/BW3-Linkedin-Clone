@@ -1,6 +1,7 @@
 import { Pencil } from "react-bootstrap-icons"
 
 import SimilarProfiles from "./SimilarProfiles"
+import FriendsRecommended from "./FriendsRecommended"
 
 
 
@@ -24,6 +25,8 @@ const SideBar = () => {
             </div>
 
             <SimilarProfiles />
+
+            <FriendsRecommended />
         </>
     )
 }
