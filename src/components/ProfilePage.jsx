@@ -20,7 +20,6 @@ const ProfilePage = () => {
     <Row>
       <Col xs="12" md="9">
         <Hero />
-
         <ContentBox title={"Analisi"} content={<AnalisysContent />} privacy />
         <ContentBox title={"Risorse"} content={<ResourcesContent />} privacy />
         <ContentBox title={"Esperienza"} content={<ExperienceCard />} editable />
