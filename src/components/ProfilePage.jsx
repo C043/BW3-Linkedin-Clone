@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAction } from "../redux/actions";
-import { Col, Container, Row } from "react-bootstrap";
-import ProfilePic from "./ProfilePic";
-import CoverPic from "./CoverPic";
+import { Col, Row } from "react-bootstrap";
 import HeroHead from "./HeroHead";
 
 const ProfilePage = () => {
