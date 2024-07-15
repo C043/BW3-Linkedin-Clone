@@ -4,7 +4,7 @@ import ProfilePic from "./ProfilePic";
 
 const HeroHead = () => {
   return (
-    <div className="position-relative">
+    <div className="position-relative hero-header">
       <CoverPic />
       <ProfilePic />
       <EditBadge absolute={true} color={"#0966C2"} />

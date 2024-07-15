@@ -10,8 +10,8 @@ const ProfilePic = () => {
         src={profile.image}
         alt="profile-picture"
         className="rounded-circle border border-white border-5 position-absolute"
-        width={"150px"}
-        height={"150px"}
+        width={"120px"}
+        height={"120px"}
       />
     )
   );

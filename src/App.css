@@ -1,8 +1,10 @@
 body {
   background-color: #f4f2ee;
-  #profile-pic {
-    left: 25px;
-    bottom: -50px;
+  .hero-header {
+    #profile-pic {
+      left: 5%;
+      top: 50%;
+    }
   }
   .edit-badge {
     width: 30px;

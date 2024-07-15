@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAction } from "../redux/actions";
 import { Col, Row } from "react-bootstrap";
-import HeroHead from "./HeroHead";
+import Hero from "./Hero";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const ProfilePage = () => {
   return (
     <Row>
       <Col xs="12" md="9">
-        <HeroHead />
+        <Hero />
       </Col>
       <Col md="3" className="d-none d-md-block"></Col>
     </Row>
