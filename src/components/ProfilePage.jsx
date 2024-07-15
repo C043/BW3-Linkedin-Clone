@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAction } from "../redux/actions";
+import { Col, Container, Row } from "react-bootstrap";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,14 @@ const ProfilePage = () => {
     dispatch(getUserAction());
   }, []);
 
-  return user && <h1>{user.name}</h1>;
+  return (
+    <Container>
+      <Row>
+        <Col xs="12" md="9"></Col>
+        <Col md="3" className="d-none d-md-block"></Col>
+      </Row>
+    </Container>
+  );
 };
 
 export default ProfilePage;
