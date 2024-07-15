@@ -1,12 +1,26 @@
-import { Pencil, Plus } from "react-bootstrap-icons";
+import { Eye, Pencil, Plus } from "react-bootstrap-icons";
 
-const ContentBox = ({ title, content }) => {
+const ContentBox = ({ title, content, editable, privacy }) => {
   return (
-    <section className="rounded-4 border px-3 bg-white">
+    <section className="rounded-4 border px-3 mb-2 bg-white">
       <div className="d-flex align-items-center gap-2 my-3">
-        <h3 className="h6 m-0">{title}</h3>
-        <Plus className="ms-auto" />
-        <Pencil />
+        <div className="flex-column">
+          <h3 className="h6 m-0">{title}</h3>
+          {privacy && (
+            <>
+              <div className="d-flex align-items-center gap-1">
+                <Eye />
+                <p className="m-0 fs-6 text-secondary">Solo per te</p>
+              </div>
+            </>
+          )}
+        </div>
+        {editable && (
+          <>
+            <Plus className="ms-auto" />
+            <Pencil />
+          </>
+        )}
       </div>
       {content}
     </section>

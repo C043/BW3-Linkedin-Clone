@@ -16,8 +16,8 @@ const ExperienceCard = () => {
         <p className="m-0">
           EPICODE · <span>A tempo pieno</span>
         </p>
-        <p className="muted m-0">mag 2024 - Presente - 3 mesi</p>
-        <p className="muted m-0">Bergamo, Lombardia, Italia</p>
+        <p className="text-secondary m-0">mag 2024 - Presente - 3 mesi</p>
+        <p className="text-secondary m-0">Bergamo, Lombardia, Italia</p>
       </Col>
     </Row>
   );
