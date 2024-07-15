@@ -3,7 +3,7 @@ import { Gear, GearFill, QuestionCircle, ShieldFill } from "react-bootstrap-icon
 
 const FooterComponent = () => {
   return (
-    <Row>
+    <Row className="my-3">
       <Col xs="6" md="2">
         <a className="d-block text-secondary link-underline link-underline-opacity-0" href="">
           Informazioni
