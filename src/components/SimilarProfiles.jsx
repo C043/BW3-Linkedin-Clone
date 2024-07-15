@@ -33,7 +33,7 @@ const SimilarProfiles = () => {
                 <h5>
                   {user.name} {user.surname}
                 </h5>
-                <p className="d-block text-truncate ">{user.bio}</p>
+                <p className="d-block text-truncate ">{user.title}</p>
                 <Button variant="outline-dark" size="sm" className="rounded-pill">
                   {" "}
                   Visualizza profilo{" "}
