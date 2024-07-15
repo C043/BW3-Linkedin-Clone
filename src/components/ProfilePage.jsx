@@ -8,6 +8,7 @@ import AnalisysContent from "./AnalisysContent";
 import ResourcesContent from "./ResourcesContent";
 import EducationContent from "./EducationContent";
 import Hero from "./Hero";
+import FooterComponent from "./FooterComponent";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const ProfilePage = () => {
         <ContentBox title={"Formazione"} content={<EducationContent />} editable />
       </Col>
       <Col md="3" className="d-none d-md-block"></Col>
+      <FooterComponent />
     </Row>
   );
 };
