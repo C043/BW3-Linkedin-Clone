@@ -7,6 +7,7 @@ import ExperienceCard from "./ExperienceCard";
 import AnalisysContent from "./AnalisysContent";
 import ResourcesContent from "./ResourcesContent";
 import EducationContent from "./EducationContent";
+import Hero from "./Hero";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();

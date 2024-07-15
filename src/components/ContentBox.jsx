@@ -2,7 +2,7 @@ import { EyeFill, Pencil, Plus } from "react-bootstrap-icons";
 
 const ContentBox = ({ title, content, editable, privacy }) => {
   return (
-    <section className="rounded-4 border px-3 mb-2 bg-white">
+    <section className="rounded-4 border px-3 my-2 bg-white">
       <div className="d-flex align-items-center gap-2 my-3">
         <div className="flex-column">
           <h3 className="h6 m-0">{title}</h3>
