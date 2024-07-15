@@ -1,4 +1,4 @@
-import { Eye, Pencil, Plus } from "react-bootstrap-icons";
+import { EyeFill, Pencil, Plus } from "react-bootstrap-icons";
 
 const ContentBox = ({ title, content, editable, privacy }) => {
   return (
@@ -9,7 +9,7 @@ const ContentBox = ({ title, content, editable, privacy }) => {
           {privacy && (
             <>
               <div className="d-flex align-items-center gap-1">
-                <Eye />
+                <EyeFill />
                 <p className="m-0 fs-6 text-secondary">Solo per te</p>
               </div>
             </>

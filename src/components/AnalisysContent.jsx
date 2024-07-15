@@ -4,7 +4,7 @@ import { BarChartLineFill, PersonFill, Search } from "react-bootstrap-icons";
 const AnalisysContent = () => {
   return (
     <Row>
-      <Col xs="4">
+      <Col xs="12" md="4">
         <Row>
           <Col xs="1">
             <PersonFill />
@@ -15,7 +15,7 @@ const AnalisysContent = () => {
           </Col>
         </Row>
       </Col>
-      <Col xs="4">
+      <Col xs="12" md="4">
         <Row>
           <Col xs="1">
             <BarChartLineFill />
@@ -26,7 +26,7 @@ const AnalisysContent = () => {
           </Col>
         </Row>
       </Col>
-      <Col xs="4">
+      <Col xs="12" md="4">
         <Row>
           <Col xs="1">
             <Search />

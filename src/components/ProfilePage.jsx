@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAction } from "../redux/actions";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import ContentBox from "./ContentBox";
 import ExperienceCard from "./ExperienceCard";
 import AnalisysContent from "./AnalisysContent";
+import ResourcesContent from "./ResourcesContent";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const ProfilePage = () => {
     <Row>
       <Col xs="12" md="9">
         <ContentBox title={"Analisi"} content={<AnalisysContent />} privacy />
+        <ContentBox title={"Risorse"} content={<ResourcesContent />} privacy />
         <ContentBox title={"Esperienza"} content={<ExperienceCard />} editable />
         <ContentBox title={"Formazione"} content={<ExperienceCard />} editable />
       </Col>
