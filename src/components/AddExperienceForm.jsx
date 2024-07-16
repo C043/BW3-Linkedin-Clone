@@ -3,6 +3,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { userId } from "../../userId";
 import { token } from "../../token";
+import { getExperiencesAction } from "../redux/actions";
 
 const AddExperienceForm = () => {
   const [checked, setChecked] = useState(true);
@@ -33,6 +34,7 @@ const AddExperienceForm = () => {
         body: JSON.stringify(experience),
       });
       if (resp.ok) {
+        dispatch(getExperiencesAction());
         alert("Post effettuato");
       } else {
         throw new Error("Errore nel post");
@@ -126,7 +128,19 @@ const AddExperienceForm = () => {
         </Form.Group>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" type="reset">
+        <Button
+          variant="secondary"
+          type="reset"
+          onClick={() => {
+            setArea("");
+            setCompany("");
+            setChecked(true);
+            setDescription("");
+            setStartDate("");
+            setEndDate("");
+            setRole("");
+          }}
+        >
           Reset
         </Button>
         <Button variant="primary" type="submit">

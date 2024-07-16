@@ -27,7 +27,7 @@ const ContentBox = ({ title, content, editable, privacy }) => {
           <>
             <Plus type="button" className="ms-auto fs-4" onClick={handleShow} />
             <Pencil type="button" onClick={handleShow} />
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} size="lg">
               <AddExperienceForm />
             </Modal>
           </>
