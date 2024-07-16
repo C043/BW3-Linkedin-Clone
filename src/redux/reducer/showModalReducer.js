@@ -1,20 +1,31 @@
-import { SHOW_MODAL_OFF, SHOW_MODAL_ON } from "../actions";
+import { SHOW_EDIT_EXPERIENCE_OFF, SHOW_EDIT_EXPERIENCE_ON, SHOW_EXPERIENCE_OFF, SHOW_EXPERIENCE_ON } from "../actions";
 
 const initialState = {
-  content: false,
+  experience: false,
+  editExp: false,
 };
 
 const showModalReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SHOW_MODAL_ON:
+    case SHOW_EXPERIENCE_ON:
       return {
         ...state,
-        content: action.payload,
+        experience: action.payload,
       };
-    case SHOW_MODAL_OFF:
+    case SHOW_EXPERIENCE_OFF:
       return {
         ...state,
-        content: action.payload,
+        experience: action.payload,
+      };
+    case SHOW_EDIT_EXPERIENCE_ON:
+      return {
+        ...state,
+        editExp: action.payload,
+      };
+    case SHOW_EDIT_EXPERIENCE_OFF:
+      return {
+        ...state,
+        editExp: action.payload,
       };
     default:
       return state;

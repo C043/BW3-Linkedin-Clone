@@ -4,8 +4,11 @@ import { userId } from "../../../userId";
 export const GET_USER = "GET_USER";
 export const GET_USERS_LIST = "GET_USERS_LIST";
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
-export const SHOW_MODAL_ON = "SHOW_MODAL_ON";
-export const SHOW_MODAL_OFF = "SHOW_MODAL_OFF";
+export const SHOW_EXPERIENCE_ON = "SHOW_EXPERIENCE_ON";
+export const SHOW_EXPERIENCE_OFF = "SHOW_EXPERIENCE_OFF";
+export const SHOW_EDIT_EXPERIENCE_ON = "SHOW_EDIT_EXPERIENCE_ON";
+export const SHOW_EDIT_EXPERIENCE_OFF = "SHOW_EDIT_EXPERIENCE_OFF";
+export const SELECT_EXP = "SELECT_EXP";
 
 export const getUserAction = () => {
   return async dispatch => {
@@ -64,5 +67,10 @@ export const getExperiencesAction = () => {
   };
 };
 
-export const showModaOnAction = () => ({ type: SHOW_MODAL_ON, payload: true });
-export const showModalOffAction = () => ({ type: SHOW_MODAL_OFF, payload: false });
+export const showExperienceOnAction = () => ({ type: SHOW_EXPERIENCE_ON, payload: true });
+export const showExperienceOffAction = () => ({ type: SHOW_EXPERIENCE_OFF, payload: false });
+
+export const showEditExpOnAction = () => ({ type: SHOW_EDIT_EXPERIENCE_ON, payload: true });
+export const showEditExpOffAction = () => ({ type: SHOW_EDIT_EXPERIENCE_OFF, payload: false });
+
+export const selectExpAction = id => ({ type: SELECT_EXP, payload: id });

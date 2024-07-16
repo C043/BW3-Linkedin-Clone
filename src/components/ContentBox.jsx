@@ -1,16 +1,13 @@
-import { Modal } from "react-bootstrap";
 import { EyeFill, Pencil, Plus } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
+import { showExperienceOnAction } from "../redux/actions";
 import AddExperienceForm from "./AddExperienceForm";
-import { useDispatch, useSelector } from "react-redux";
-import { showModaOnAction, showModalOffAction } from "../redux/actions";
+import EditExperienceForm from "./EditExperienceForm";
 
 const ContentBox = ({ title, content, editable, privacy }) => {
-  const show = useSelector(state => state.show.content);
-
   const dispatch = useDispatch();
 
-  const handleClose = () => dispatch(showModalOffAction());
-  const handleShow = () => dispatch(showModaOnAction());
+  const handleShow = () => dispatch(showExperienceOnAction());
 
   return (
     <section className="rounded-4 border px-3 my-2 bg-white">
@@ -29,10 +26,9 @@ const ContentBox = ({ title, content, editable, privacy }) => {
         {editable && (
           <>
             <Plus type="button" className="ms-auto fs-4" onClick={handleShow} />
-            <Pencil type="button" onClick={handleShow} />
-            <Modal show={show} onHide={handleClose} size="lg">
-              <AddExperienceForm />
-            </Modal>
+            <Pencil type="button" />
+            <AddExperienceForm />
+            <EditExperienceForm />
           </>
         )}
       </div>
