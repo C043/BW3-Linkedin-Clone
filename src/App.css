@@ -12,6 +12,15 @@ body {
     top: 10px;
     right: 10px;
   }
+
+  .main-button {
+    width: 100px;
+    transition: width 0.5s;
+    &:focus {
+      width: 300px;
+      transition: width 0.5s;
+    }
+  }
 }
 
 .dashed-border {

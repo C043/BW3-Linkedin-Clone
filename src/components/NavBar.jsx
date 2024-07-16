@@ -1,4 +1,4 @@
-import { Col, Container, Form, Image, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
+import { Col, Container, Form, FormLabel, Image, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
 import logo from "../assets/LinkedIn_logo_initials.png.webp";
 
 const NavBar = () => {
@@ -8,19 +8,27 @@ const NavBar = () => {
         <Navbar.Brand href="#home">
           <Image src={logo} alt="logo" width={40} />
         </Navbar.Brand>
-        <div className="border d-flex align-items-center ps-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="currentColor"
-            className="bi bi-search me-2"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-          </svg>
-          <Form.Control type="text" placeholder="Cerca" className=" mr-sm-2 w-150 border-0" />
-        </div>
+
+        <Form >
+          <Form.Group className="bg-white border d-flex align-items-center ps-2 rounded-3" controlId="formBasicEmail">
+
+            <FormLabel>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                className="bi bi-search me-2"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+              </svg>
+            </FormLabel>
+            <Form.Control type="text" placeholder="Cerca" className=" mr-sm-2 border-0 main-button" />
+          </Form.Group>
+        </Form>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Row className="ms-auto">
