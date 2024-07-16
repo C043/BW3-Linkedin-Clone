@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAction } from "../redux/actions";
+import { getExperiencesAction, getUserAction } from "../redux/actions";
 import { Col, Row } from "react-bootstrap";
 import ContentBox from "./ContentBox";
 import ExperienceCard from "./ExperienceCard";
@@ -17,6 +17,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     dispatch(getUserAction());
+    dispatch(getExperiencesAction());
   }, []);
 
   return (

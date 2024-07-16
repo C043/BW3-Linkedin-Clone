@@ -1,7 +1,9 @@
 import { token } from "../../../token";
+import { userId } from "../../../userId";
 
 export const GET_USER = "GET_USER";
 export const GET_USERS_LIST = "GET_USERS_LIST";
+export const GET_EXPERIENCES = "GET_EXPERIENCES";
 
 export const getUserAction = () => {
   return async dispatch => {
@@ -22,15 +24,13 @@ export const getUserAction = () => {
   };
 };
 
-
 export const getUsersListAction = () => {
-
   return async dispatch => {
     try {
       const resp = await fetch("https://striveschool-api.herokuapp.com/api/profile", {
         method: "GET",
-        headers: { Authorization: token }
-      })
+        headers: { Authorization: token },
+      });
       if (resp.ok) {
         const profileListData = await resp.json();
         dispatch({ type: GET_USERS_LIST, payload: profileListData });
@@ -38,8 +38,26 @@ export const getUsersListAction = () => {
         throw new Error("Errore nel fetch");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
+};
 
-}
+export const getExperiencesAction = () => {
+  return async dispatch => {
+    try {
+      const resp = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + userId + "/experiences", {
+        method: "GET",
+        headers: { Authorization: token },
+      });
+      if (resp.ok) {
+        const experiences = await resp.json();
+        dispatch({ type: GET_EXPERIENCES, payload: experiences });
+      } else {
+        throw new Error("Errore nel reperimento delle esperienze");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
