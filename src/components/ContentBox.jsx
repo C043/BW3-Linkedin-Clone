@@ -25,7 +25,6 @@ const ContentBox = ({ title, content, editable, privacy }) => {
         {editable && (
           <>
             <Plus type="button" className="ms-auto fs-4" onClick={handleShow} />
-            <Pencil type="button" />
             <AddExperienceForm />
           </>
         )}
