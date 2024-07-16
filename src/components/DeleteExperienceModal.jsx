@@ -25,7 +25,6 @@ const DeleteExperienceModal = ({ id }) => {
       if (resp.ok) {
         const experience = await resp.json();
         expObj = experience;
-        console.log(expObj);
       } else {
         throw new Error("Errore nel get");
       }

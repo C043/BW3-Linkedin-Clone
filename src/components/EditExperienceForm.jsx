@@ -75,8 +75,6 @@ const EditExperienceForm = ({ id }) => {
   const addImage = async () => {
     const data = new FormData();
     data.append("experience", file);
-    console.log(data);
-    console.log(data.get("experience"));
     try {
       const resp = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/" + userId + "/experiences/" + id + "/picture",
@@ -88,7 +86,6 @@ const EditExperienceForm = ({ id }) => {
       );
       if (resp.ok) {
         dispatch(getExperiencesAction());
-        alert("Immagine effettuato");
         handleClose();
       } else {
         throw new Error("Errore nel post");
