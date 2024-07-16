@@ -27,7 +27,7 @@ const ProfilePage = () => {
         <ContentBox title={"Analisi"} content={<AnalisysContent />} privacy />
         <ContentBox title={"Risorse"} content={<ResourcesContent />} privacy />
         <ContentBox title={"Esperienza"} content={<ExperienceCard />} editable />
-        <ContentBox title={"Formazione"} content={<EducationContent />} editable />
+        <ContentBox title={"Formazione"} content={<EducationContent />} />
       </Col>
       <Col md="5" lg="4" className="d-none d-md-block">
         <SideBar />

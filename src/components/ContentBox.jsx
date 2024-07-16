@@ -1,13 +1,16 @@
-import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { EyeFill, Pencil, Plus } from "react-bootstrap-icons";
 import AddExperienceForm from "./AddExperienceForm";
+import { useDispatch, useSelector } from "react-redux";
+import { showModaOnAction, showModalOffAction } from "../redux/actions";
 
 const ContentBox = ({ title, content, editable, privacy }) => {
-  const [show, setShow] = useState(false);
+  const show = useSelector(state => state.show.content);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const dispatch = useDispatch();
+
+  const handleClose = () => dispatch(showModalOffAction());
+  const handleShow = () => dispatch(showModaOnAction());
 
   return (
     <section className="rounded-4 border px-3 my-2 bg-white">

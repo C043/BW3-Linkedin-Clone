@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { userId } from "../../userId";
 import { token } from "../../token";
 import { getExperiencesAction } from "../redux/actions";

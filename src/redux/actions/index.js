@@ -4,6 +4,8 @@ import { userId } from "../../../userId";
 export const GET_USER = "GET_USER";
 export const GET_USERS_LIST = "GET_USERS_LIST";
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
+export const SHOW_MODAL_ON = "SHOW_MODAL_ON";
+export const SHOW_MODAL_OFF = "SHOW_MODAL_OFF";
 
 export const getUserAction = () => {
   return async dispatch => {
@@ -61,3 +63,6 @@ export const getExperiencesAction = () => {
     }
   };
 };
+
+export const showModaOnAction = () => ({ type: SHOW_MODAL_ON, payload: true });
+export const showModalOffAction = () => ({ type: SHOW_MODAL_OFF, payload: false });

@@ -1,8 +1,8 @@
 import { Col, Image, Row } from "react-bootstrap";
 
-const ListItem = ({ src, alt, title, jobTitle, time, location }) => {
+const ListItem = ({ src, alt, title, jobTitle, time, location, id }) => {
   return (
-    <Row>
+    <Row id={id}>
       <Col xs="3" md="2" lg="1">
         <Image src={src} alt={alt} fluid />
       </Col>
