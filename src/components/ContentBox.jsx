@@ -2,7 +2,6 @@ import { EyeFill, Pencil, Plus } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { showExperienceOnAction } from "../redux/actions";
 import AddExperienceForm from "./AddExperienceForm";
-import EditExperienceForm from "./EditExperienceForm";
 
 const ContentBox = ({ title, content, editable, privacy }) => {
   const dispatch = useDispatch();
@@ -28,7 +27,6 @@ const ContentBox = ({ title, content, editable, privacy }) => {
             <Plus type="button" className="ms-auto fs-4" onClick={handleShow} />
             <Pencil type="button" />
             <AddExperienceForm />
-            <EditExperienceForm />
           </>
         )}
       </div>

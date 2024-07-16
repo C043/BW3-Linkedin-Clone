@@ -2,14 +2,20 @@ import { Col, Row } from "react-bootstrap";
 import ListItem from "./ListItem";
 import { useDispatch, useSelector } from "react-redux";
 import { Pencil, TrashFill } from "react-bootstrap-icons";
-import { selectExpAction, showEditExpOnAction } from "../redux/actions";
+import { selectExpAction, showDelExpOnAction, showEditExpOnAction } from "../redux/actions";
 import EditExperienceForm from "./EditExperienceForm";
+import DeleteExperienceModal from "./DeleteExperienceModal";
 
 const ExperienceCard = () => {
   const experiences = useSelector(state => state.experiences.content);
   const expId = useSelector(state => state.item.selectedExp);
 
   const dispatch = useDispatch();
+
+  const handleDelOpen = id => {
+    dispatch(showDelExpOnAction());
+    dispatch(selectExpAction(id));
+  };
 
   const handleOpen = id => {
     dispatch(showEditExpOnAction());
@@ -37,13 +43,14 @@ const ExperienceCard = () => {
           </Col>
           <Col xs="2" className="my-auto">
             <div className="d-flex justify-content-end gap-3 align-items-center">
-              <TrashFill type="button" />
+              <TrashFill type="button" onClick={() => handleDelOpen(experience._id)} />
               <Pencil type="button" onClick={() => handleOpen(experience._id)} />
             </div>
           </Col>
         </Row>
       ))}
       <EditExperienceForm id={expId} />
+      <DeleteExperienceModal id={expId} />
     </>
   );
 };

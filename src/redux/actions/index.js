@@ -9,6 +9,8 @@ export const SHOW_EXPERIENCE_OFF = "SHOW_EXPERIENCE_OFF";
 export const SHOW_EDIT_EXPERIENCE_ON = "SHOW_EDIT_EXPERIENCE_ON";
 export const SHOW_EDIT_EXPERIENCE_OFF = "SHOW_EDIT_EXPERIENCE_OFF";
 export const SELECT_EXP = "SELECT_EXP";
+export const SHOW_DEL_EXP_ON = "SHOW_DEL_EXP_ON";
+export const SHOW_DEL_EXP_OFF = "SHOW_DEL_EXP_OFF";
 
 export const getUserAction = () => {
   return async dispatch => {
@@ -74,3 +76,6 @@ export const showEditExpOnAction = () => ({ type: SHOW_EDIT_EXPERIENCE_ON, paylo
 export const showEditExpOffAction = () => ({ type: SHOW_EDIT_EXPERIENCE_OFF, payload: false });
 
 export const selectExpAction = id => ({ type: SELECT_EXP, payload: id });
+
+export const showDelExpOnAction = () => ({ type: SHOW_DEL_EXP_ON, payload: true });
+export const showDelExpOffAction = () => ({ type: SHOW_DEL_EXP_OFF, payload: false });

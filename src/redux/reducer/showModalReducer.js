@@ -1,8 +1,16 @@
-import { SHOW_EDIT_EXPERIENCE_OFF, SHOW_EDIT_EXPERIENCE_ON, SHOW_EXPERIENCE_OFF, SHOW_EXPERIENCE_ON } from "../actions";
+import {
+  SHOW_DEL_EXP_OFF,
+  SHOW_DEL_EXP_ON,
+  SHOW_EDIT_EXPERIENCE_OFF,
+  SHOW_EDIT_EXPERIENCE_ON,
+  SHOW_EXPERIENCE_OFF,
+  SHOW_EXPERIENCE_ON,
+} from "../actions";
 
 const initialState = {
   experience: false,
   editExp: false,
+  delExp: false,
 };
 
 const showModalReducer = (state = initialState, action) => {
@@ -27,6 +35,17 @@ const showModalReducer = (state = initialState, action) => {
         ...state,
         editExp: action.payload,
       };
+    case SHOW_DEL_EXP_ON:
+      return {
+        ...state,
+        delExp: action.payload,
+      };
+    case SHOW_DEL_EXP_OFF:
+      return {
+        ...state,
+        delExp: action.payload,
+      };
+
     default:
       return state;
   }
