@@ -19,8 +19,8 @@ const Hero = () => {
                 verify now
               </Button>
             </div>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p id="bioProfile" className="fs-5 m-0">
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               "{user.bio}"
             </p>
             <p id="areaProfile" className="fs-5 ">
