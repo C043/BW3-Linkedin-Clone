@@ -5,9 +5,11 @@ import { Pencil, TrashFill } from "react-bootstrap-icons";
 import { selectExpAction, showDelExpOnAction, showEditExpOnAction } from "../redux/actions";
 import EditExperienceForm from "./EditExperienceForm";
 import DeleteExperienceModal from "./DeleteExperienceModal";
+import OtherInfo from "./OtherInfo";
 
-const ExperienceCard = () => {
+const ExperienceContent = () => {
   const experiences = useSelector(state => state.experiences.content);
+  const lastExperience = experiences.length - 1;
   const expId = useSelector(state => state.item.selectedExp);
 
   const dispatch = useDispatch();
@@ -24,8 +26,8 @@ const ExperienceCard = () => {
 
   return (
     <>
-      {experiences.map(experience => (
-        <Row key={experience._id}>
+      {experiences.map((experience, i) => (
+        <Row key={experience._id} className="mb-3">
           <Col xs="10">
             <ListItem
               id={experience._id}
@@ -47,12 +49,14 @@ const ExperienceCard = () => {
               <Pencil type="button" onClick={() => handleOpen(experience._id)} />
             </div>
           </Col>
+          {i !== lastExperience && <hr className="mt-3" />}
         </Row>
       ))}
+      <OtherInfo border />
       <EditExperienceForm id={expId} />
       <DeleteExperienceModal id={expId} />
     </>
   );
 };
 
-export default ExperienceCard;
+export default ExperienceContent;

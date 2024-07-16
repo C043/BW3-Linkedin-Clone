@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getExperiencesAction, getUserAction } from "../redux/actions";
 import { Col, Row } from "react-bootstrap";
 import ContentBox from "./ContentBox";
-import ExperienceCard from "./ExperienceCard";
+import ExperienceCard from "./ExperienceContent";
 import AnalisysContent from "./AnalisysContent";
 import ResourcesContent from "./ResourcesContent";
 import EducationContent from "./EducationContent";
