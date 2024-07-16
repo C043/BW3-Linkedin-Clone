@@ -18,6 +18,8 @@ const EditExperienceForm = ({ id }) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState(null);
   const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const [file, setFile] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -62,6 +64,31 @@ const EditExperienceForm = ({ id }) => {
       if (resp.ok) {
         dispatch(getExperiencesAction());
         alert("Modifica effettuata");
+      } else {
+        throw new Error("Errore nel post");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const addImage = async () => {
+    const data = new FormData();
+    data.append("experience", file);
+    console.log(data);
+    console.log(data.get("experience"));
+    try {
+      const resp = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/" + userId + "/experiences/" + id + "/picture",
+        {
+          method: "POST",
+          headers: { Authorization: token },
+          body: data,
+        }
+      );
+      if (resp.ok) {
+        dispatch(getExperiencesAction());
+        alert("Immagine effettuato");
         handleClose();
       } else {
         throw new Error("Errore nel post");
@@ -73,8 +100,10 @@ const EditExperienceForm = ({ id }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(experience);
     putExperience(experience);
+    if (image) {
+      addImage();
+    }
   };
 
   useEffect(() => {
@@ -146,6 +175,18 @@ const EditExperienceForm = ({ id }) => {
               />
             </Form.Group>
           </div>
+          <Form.Group className="mb-3" controlId="image">
+            <Form.Label className="text-secondary">Imagine</Form.Label>
+            <Form.Control
+              type="file"
+              value={image}
+              onChange={e => {
+                setImage(e.target.value);
+                setFile(e.target.files[0]);
+              }}
+            />
+          </Form.Group>
+
           <Form.Group className="mb-3" controlId="description">
             <Form.Label className="text-secondary">Descrizione*</Form.Label>
             <Form.Control
