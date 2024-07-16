@@ -1,12 +1,9 @@
 import { Col, Row } from "react-bootstrap";
 import ListItem from "./ListItem";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 const ExperienceCard = () => {
   const experiences = useSelector(state => state.experiences.content);
-
-  useEffect(() => {}, [experiences]);
 
   return (
     <Row className="mb-3">

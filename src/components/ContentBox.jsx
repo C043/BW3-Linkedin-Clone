@@ -1,6 +1,14 @@
+import { useState } from "react";
+import { Modal } from "react-bootstrap";
 import { EyeFill, Pencil, Plus } from "react-bootstrap-icons";
+import AddExperienceForm from "./AddExperienceForm";
 
 const ContentBox = ({ title, content, editable, privacy }) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <section className="rounded-4 border px-3 my-2 bg-white">
       <div className="d-flex align-items-center gap-2 my-3">
@@ -17,8 +25,11 @@ const ContentBox = ({ title, content, editable, privacy }) => {
         </div>
         {editable && (
           <>
-            <Plus className="ms-auto" />
-            <Pencil />
+            <Plus type="button" className="ms-auto fs-4" onClick={handleShow} />
+            <Pencil type="button" onClick={handleShow} />
+            <Modal show={show} onHide={handleClose}>
+              <AddExperienceForm />
+            </Modal>
           </>
         )}
       </div>
