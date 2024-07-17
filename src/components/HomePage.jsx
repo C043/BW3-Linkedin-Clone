@@ -26,12 +26,14 @@ const HomePage = () => {
       <Col xs="12" md="8" lg="5" xl="6">
         <ContentBox content={<AddPostComponent />} noHeader />
         {posts &&
-          posts.map(post => (
-            <ContentBox
-              key={post._id}
-              content={<PostComponent username={post.username} text={post.text} date={post.createdAt.slice(0, 10)} />}
-            />
-          ))}
+          posts
+            .reverse()
+            .map(post => (
+              <ContentBox
+                key={post._id}
+                content={<PostComponent username={post.username} text={post.text} date={post.createdAt.slice(0, 10)} />}
+              />
+            ))}
       </Col>
       <Col xs="12" lg="4" xl="3" className="d-none d-lg-block">
         <ContentBox content={<LinkedinNews />} noHeader />

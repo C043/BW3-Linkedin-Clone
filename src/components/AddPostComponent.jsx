@@ -1,12 +1,24 @@
 import { Calendar, CardImage, TextIndentLeft } from "react-bootstrap-icons";
 import ProfilePic from "./ProfilePic";
+import { useDispatch } from "react-redux";
+import { showAddPostOnAction } from "../redux/actions";
+import AddPostForm from "./AddPostForm";
 
 const AddPostComponent = () => {
+  const dispatch = useDispatch();
+  const handleOpen = () => dispatch(showAddPostOnAction());
   return (
     <>
       <div className="d-flex gap-2 my-3 align-items-center">
         <ProfilePic small position={""} />
-        <input type="text" className="w-100 rounded-pill border px-3 py-3" placeholder="Crea un post" />
+        <button
+          type="button"
+          className="w-100 rounded-pill border px-3 py-3"
+          placeholder="Crea un post"
+          onClick={() => handleOpen()}
+        >
+          Crea un post
+        </button>
       </div>
       <div className="d-flex gap-3 justify-content-center my-3">
         <div type="button" className="d-flex gap-2 align-items-center">
@@ -28,6 +40,7 @@ const AddPostComponent = () => {
           </p>
         </div>
       </div>
+      <AddPostForm />
     </>
   );
 };
