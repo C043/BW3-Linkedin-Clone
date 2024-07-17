@@ -5,8 +5,17 @@ import { Container } from "react-bootstrap";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getUserAction } from "./redux/actions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserAction());
+  }, []);
+
   return (
     <BrowserRouter>
       <NavBar />

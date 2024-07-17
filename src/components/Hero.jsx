@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import HeroHead from "./HeroHead";
 
@@ -6,7 +6,7 @@ const Hero = ({ big }) => {
   const user = useSelector(state => state.profile.content);
   return (
     user && (
-      <div className="border rounded-4 bg-white mt-3">
+      <div className="border rounded-4 bg-white mt-2">
         {big ? <HeroHead /> : <HeroHead small />}
         <Row className={big ? "mb-3 p-3 mt-4" : "px-3 pt-3 mt-4"}>
           <Col xs="12" md="8">

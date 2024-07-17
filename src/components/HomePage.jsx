@@ -4,6 +4,7 @@ import ContentBox from "./ContentBox";
 import HomeInsight from "./HomeInsight";
 import LinkedinNews from "./LinkedinNews";
 import HomeFooter from "./HomeFooter";
+import PostComponent from "./PostComponent";
 
 const HomePage = () => {
   return (

@@ -13,10 +13,7 @@ import SideBar from "./SideBar";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.profile.content);
-
   useEffect(() => {
-    dispatch(getUserAction());
     dispatch(getExperiencesAction());
   }, []);
 
