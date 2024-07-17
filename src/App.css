@@ -23,6 +23,13 @@ body {
   }
 }
 
+.bg-grey {
+  &:hover {
+    background-color: #44474b;
+    color: white;
+  }
+}
+
 .dashed-border {
   border: 1px dashed;
 }

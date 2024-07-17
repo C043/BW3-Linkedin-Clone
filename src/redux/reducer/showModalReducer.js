@@ -3,6 +3,8 @@ import {
   SHOW_DEL_EXP_ON,
   SHOW_EDIT_EXPERIENCE_OFF,
   SHOW_EDIT_EXPERIENCE_ON,
+  SHOW_EDIT_PROFILE_PIC_OFF,
+  SHOW_EDIT_PROFILE_PIC_ON,
   SHOW_EXPERIENCE_OFF,
   SHOW_EXPERIENCE_ON,
 } from "../actions";
@@ -11,6 +13,7 @@ const initialState = {
   experience: false,
   editExp: false,
   delExp: false,
+  editPic: false
 };
 
 const showModalReducer = (state = initialState, action) => {
@@ -34,6 +37,16 @@ const showModalReducer = (state = initialState, action) => {
       return {
         ...state,
         editExp: action.payload,
+      };
+    case SHOW_EDIT_PROFILE_PIC_ON:
+      return {
+        ...state,
+        editPic: action.payload
+      };
+    case SHOW_EDIT_PROFILE_PIC_OFF:
+      return {
+        ...state,
+        editPic: action.payload
       };
     case SHOW_DEL_EXP_ON:
       return {
