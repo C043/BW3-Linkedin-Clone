@@ -1,7 +1,8 @@
-import { SELECT_EXP } from "../actions";
+import { SELECT_EXP, SELECT_POST } from "../actions";
 
 const initialState = {
   selectedExp: "",
+  selectedPost: ''
 };
 
 const itemSelectedReducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const itemSelectedReducer = (state = initialState, action) => {
         ...state,
         selectedExp: action.payload,
       };
+    case SELECT_POST:
+      return {
+        ...state,
+        selectedPost: action.payload
+      }
     default:
       return state;
   }

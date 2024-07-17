@@ -2,6 +2,7 @@ import { GET_POSTS } from "../actions";
 
 const initialState = {
     content: [],
+
 };
 
 const postsReducer = (state = initialState, action) => {
@@ -11,6 +12,7 @@ const postsReducer = (state = initialState, action) => {
                 ...state,
                 content: action.payload,
             };
+
         default:
             return state;
     }
