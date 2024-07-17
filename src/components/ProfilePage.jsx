@@ -23,7 +23,7 @@ const ProfilePage = () => {
   return (
     <Row>
       <Col xs="12" md="7" lg="8">
-        <Hero />
+        <Hero big />
         <ContentBox title={"Analisi"} content={<AnalisysContent />} privacy />
         <ContentBox title={"Risorse"} content={<ResourcesContent />} privacy />
         <ContentBox title={"Esperienza"} content={<ExperienceCard />} editable />
