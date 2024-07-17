@@ -6,7 +6,7 @@ import { getUserAction, showPicOffAction, showPicOnAction } from "../redux/actio
 import { token } from "../../token";
 import { userId } from "../../userId";
 
-const ProfilePic = ({ small }) => {
+const ProfilePic = ({ small, position }) => {
   const profile = useSelector(state => state.profile.content);
 
   /* const [show, setShow] = useState(false); */
@@ -124,8 +124,8 @@ const ProfilePic = ({ small }) => {
           alt="profile-picture"
           className={
             small
-              ? "rounded-circle border border-white border-3 position-absolute"
-              : "rounded-circle border border-white border-5 position-absolute"
+              ? `rounded-circle border border-white border-3 ${position}`
+              : `rounded-circle border border-white border-5 ${position}`
           }
           width={small ? "70px" : "120px"}
           height={small ? "70px" : "120px"}

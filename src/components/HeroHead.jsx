@@ -8,12 +8,12 @@ const HeroHead = ({ small }) => {
       {small ? (
         <>
           <CoverPic small />
-          <ProfilePic small />
+          <ProfilePic small position={"position-absolute"} />
         </>
       ) : (
         <>
           <CoverPic />
-          <ProfilePic />
+          <ProfilePic position={"position-absolute"} />
         </>
       )}
       {small ? "" : <EditBadge absolute={true} color={"#0966C2"} />}
