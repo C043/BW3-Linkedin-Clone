@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getExperiencesAction, getUserAction } from "../redux/actions";
+import { useDispatch } from "react-redux";
+import { getExperiencesAction } from "../redux/actions";
 import { Col, Row } from "react-bootstrap";
 import ContentBox from "./ContentBox";
 import ExperienceCard from "./ExperienceContent";
