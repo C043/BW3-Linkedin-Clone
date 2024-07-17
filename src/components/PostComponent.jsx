@@ -2,7 +2,7 @@ import { Image } from "react-bootstrap";
 import { GlobeAmericas, Pencil } from "react-bootstrap-icons";
 import InteractionComponent from "./InteractionComponent";
 
-const PostComponent = ({ username, text, date }) => {
+const PostComponent = ({ username, text, date, image }) => {
   return (
     <>
       <div className="d-flex gap-3 align-items-center">
@@ -22,6 +22,7 @@ const PostComponent = ({ username, text, date }) => {
         <Pencil type="button" className="ms-auto" />
       </div>
       <p className="my-2 break">{text}</p>
+      {image && <Image src={image} alt="post-image" className="image-fluid" width={"100%"} />}
       <InteractionComponent />
     </>
   );

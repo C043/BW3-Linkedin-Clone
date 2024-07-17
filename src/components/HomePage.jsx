@@ -31,7 +31,14 @@ const HomePage = () => {
             .map(post => (
               <ContentBox
                 key={post._id}
-                content={<PostComponent username={post.username} text={post.text} date={post.createdAt.slice(0, 10)} />}
+                content={
+                  <PostComponent
+                    username={post.username}
+                    text={post.text}
+                    image={post.image}
+                    date={post.createdAt.slice(0, 10)}
+                  />
+                }
               />
             ))}
       </Col>
