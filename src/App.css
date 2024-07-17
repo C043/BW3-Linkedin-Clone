@@ -33,3 +33,13 @@ body {
 .dashed-border {
   border: 1px dashed;
 }
+
+.home-footer {
+  position: sticky;
+  top: 70px;
+}
+
+.break {
+  width: 100%;
+  word-break: break-all;
+}
