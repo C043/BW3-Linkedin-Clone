@@ -5,7 +5,6 @@ import HomeInsight from "./HomeInsight";
 import LinkedinNews from "./LinkedinNews";
 import HomeFooter from "./HomeFooter";
 import { useDispatch, useSelector } from "react-redux";
-import PostBox from "./PostBox";
 import { useEffect } from "react";
 import { getPostsAction } from "../redux/actions";
 import PostComponent from "./PostComponent";

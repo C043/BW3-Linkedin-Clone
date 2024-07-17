@@ -1,5 +1,5 @@
 import { Image } from "react-bootstrap";
-import { GlobeAmericas } from "react-bootstrap-icons";
+import { GlobeAmericas, Pencil } from "react-bootstrap-icons";
 import InteractionComponent from "./InteractionComponent";
 
 const PostComponent = ({ username, text, date }) => {
@@ -19,6 +19,7 @@ const PostComponent = ({ username, text, date }) => {
             <GlobeAmericas className="text-secondary" />
           </p>
         </div>
+        <Pencil type="button" className="ms-auto" />
       </div>
       <p className="my-2 break">{text}</p>
       <InteractionComponent />
