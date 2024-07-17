@@ -18,7 +18,7 @@ export const SHOW_ADD_POST_ON = "SHOW_ADD_POST_ON";
 export const SHOW_ADD_POST_OFF = "SHOW_ADD_POST_OFF";
 export const SHOW_EDIT_POST_ON = "SHOW_EDIT_POST_ON";
 export const SHOW_EDIT_POST_OFF = "SHOW_EDIT_POST_OFF";
-export const SELECT_POST = 'SELECT_POST'
+export const SELECT_POST = "SELECT_POST";
 
 export const getUserAction = () => {
   return async dispatch => {
@@ -88,7 +88,7 @@ export const getPostsAction = () => {
         const posts = await resp.json();
         dispatch({ type: GET_POSTS, payload: posts });
       } else {
-        throw new Error("Errore nel reperimento delle esperienze");
+        throw new Error("Errore nel reperimento dei post");
       }
     } catch (error) {
       console.log(error);
@@ -104,7 +104,7 @@ export const showEditExpOffAction = () => ({ type: SHOW_EDIT_EXPERIENCE_OFF, pay
 
 export const selectExpAction = id => ({ type: SELECT_EXP, payload: id });
 
-export const selectPostAction = id => ({ type: SELECT_POST, payload: id })
+export const selectPostAction = id => ({ type: SELECT_POST, payload: id });
 
 export const showDelExpOnAction = () => ({ type: SHOW_DEL_EXP_ON, payload: true });
 export const showDelExpOffAction = () => ({ type: SHOW_DEL_EXP_OFF, payload: false });
