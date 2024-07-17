@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary sticky-top">
       <Container>
         <NavLink to="/" className={"me-2"}>
           <Image src={logo} alt="logo" width={40} />
