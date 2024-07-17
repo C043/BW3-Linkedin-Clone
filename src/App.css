@@ -1,11 +1,13 @@
 body {
   background-color: #f4f2ee;
+
   .hero-header {
     #profile-pic {
       left: 5%;
       top: 50%;
     }
   }
+
   .edit-badge {
     width: 30px;
     height: 30px;
@@ -16,6 +18,7 @@ body {
   .main-button {
     width: 100px;
     transition: width 0.5s;
+
     &:focus {
       width: 300px;
       transition: width 0.5s;
@@ -42,4 +45,18 @@ body {
 .break {
   width: 100%;
   word-break: break-all;
+}
+
+#navbar {
+  #formGroup,
+  #formControl {
+    background-color: #edf3f8;
+  }
+  .mercado-match {
+    color: #575656;
+
+    :hover {
+      color: black;
+    }
+  }
 }
