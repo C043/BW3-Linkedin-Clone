@@ -60,3 +60,7 @@ body {
     }
   }
 }
+
+.btn-outline-primary {
+  border-radius: 23px;
+}
