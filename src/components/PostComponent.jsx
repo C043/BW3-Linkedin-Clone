@@ -1,8 +1,22 @@
+/* eslint-disable react/prop-types */
+
 import { Image } from "react-bootstrap";
 import { GlobeAmericas, Pencil } from "react-bootstrap-icons";
 import InteractionComponent from "./InteractionComponent";
+import { useDispatch } from "react-redux";
+import { selectPostAction, showEditPostOnAction } from "../redux/actions";
 
-const PostComponent = ({ userImage, username, text, date, image }) => {
+const PostComponent = ({ id, userImage, username, text, date, image }) => {
+
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch(selectPostAction(id))
+    dispatch(showEditPostOnAction())
+  }
+
+
+
   return (
     <>
       <div className="d-flex gap-3 align-items-center">
@@ -14,7 +28,7 @@ const PostComponent = ({ userImage, username, text, date, image }) => {
             <GlobeAmericas className="text-secondary" />
           </p>
         </div>
-        <Pencil type="button" className="ms-auto" />
+        <Pencil type="button" className="ms-auto" onClick={handleClick} />
       </div>
       <p className="my-2 break">{text}</p>
       {image && <Image src={image} alt="post-image" className="image-fluid" width={"100%"} />}
