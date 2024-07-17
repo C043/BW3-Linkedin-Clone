@@ -33,6 +33,7 @@ const HomePage = () => {
                 key={post._id}
                 content={
                   <PostComponent
+                    userImage={post.user.image}
                     username={post.username}
                     text={post.text}
                     image={post.image}
