@@ -1,19 +1,18 @@
 import { Col, Container, Form, FormLabel, Image, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
 import logo from "../assets/LinkedIn_logo_initials.png.webp";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">
+        <NavLink to="/" className={"me-2"}>
           <Image src={logo} alt="logo" width={40} />
-        </Navbar.Brand>
+        </NavLink>
 
-        <Form >
+        <Form>
           <Form.Group className="bg-white border d-flex align-items-center ps-2 rounded-3" controlId="formBasicEmail">
-
             <FormLabel>
-
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -33,7 +32,7 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Row className="ms-auto">
             <Col className="justify-content-center align-items-center">
-              <Nav.Link href="#home">
+              <NavLink to="/" className={"text-dark"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -46,7 +45,7 @@ const NavBar = () => {
                 >
                   <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
                 </svg>
-              </Nav.Link>
+              </NavLink>
             </Col>
             <Col>
               <Nav.Link href="#">
@@ -113,13 +112,20 @@ const NavBar = () => {
               </Nav.Link>
             </Col>
             <Col>
-              <NavDropdown title="Tu" id="basic-nav-dropdown">
-                <h6>Account</h6>
+              <NavDropdown title="Tu" id="basic-nav-dropdown" drop="start">
+                <NavDropdown.Item>
+                  <h6>Account</h6>
+                </NavDropdown.Item>
+                <NavLink to={"/me"} data-rr-ui-dropdown-item className={"dropdown-item text-dark bg-white"}>
+                  Vai al tuo profilo
+                </NavLink>
                 <NavDropdown.Item href="#">Impostazione e Privacy</NavDropdown.Item>
                 <NavDropdown.Item href="#">Guida</NavDropdown.Item>
                 <NavDropdown.Item href="#">Lingua</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <h6>Gestisci</h6>
+                <NavDropdown.Item>
+                  <h6>Gestisci</h6>
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#">Post e Attività</NavDropdown.Item>
                 <NavDropdown.Item href="#">Account per la pubblicità di offerta</NavDropdown.Item>
                 <NavDropdown.Divider />
