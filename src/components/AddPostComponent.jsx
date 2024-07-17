@@ -15,7 +15,7 @@ const AddPostComponent = () => {
           type="button"
           className="w-100 rounded-pill border px-3 py-3"
           placeholder="Crea un post"
-          onClick={() => handleOpen()}
+          onClick={handleOpen}
         >
           Crea un post
         </button>

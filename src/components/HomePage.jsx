@@ -27,7 +27,7 @@ const HomePage = () => {
         <ContentBox content={<AddPostComponent />} noHeader />
         {posts &&
           posts
-            .reverse()
+            .toReversed()
             .map(post => (
               <ContentBox
                 key={post._id}
