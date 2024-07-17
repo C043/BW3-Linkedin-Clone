@@ -18,7 +18,9 @@ const HomePage = () => {
   const id = useSelector(state => state.item.selectedPost);
 
   useEffect(() => {
-    dispatch(getPostsAction());
+    setInterval(() => {
+      dispatch(getPostsAction());
+    }, 500);
   }, []);
   return (
     <>
