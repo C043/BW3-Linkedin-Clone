@@ -2,7 +2,7 @@ import { ArrowLeftRight, ChatDots, HandThumbsUp, SendFill } from "react-bootstra
 
 const InteractionComponent = () => {
   return (
-    <div className="d-flex gap-4 justify-content-center border-top py-3">
+    <div className="d-flex gap-3 gap-md-4 gap-lg-2 gap-xl-5 justify-content-center border-top py-3">
       <div type="button" className="d-flex gap-1 align-items-center">
         <HandThumbsUp />
         <p className="m-0">Consiglia</p>
