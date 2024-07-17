@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostsAction, showAddPostOffAction } from "../redux/actions";
-import { useState } from "react";
+import { getPostsAction, showEditPostOffAction } from "../redux/actions";
 import ProfilePic from "./ProfilePic";
+import { useEffect, useState } from "react";
 import { token } from "../../token";
 
-const AddPostForm = () => {
+const EditPostModal = ({ id }) => {
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
   const [file, setFile] = useState(null);
@@ -14,40 +15,47 @@ const AddPostForm = () => {
     text,
   };
 
-  const show = useSelector(state => state.show.addPost);
   const user = useSelector(state => state.profile.content);
 
+  const show = useSelector(state => state.show.editPost);
   const dispatch = useDispatch();
-  const handleClose = () => dispatch(showAddPostOffAction());
+  const handleClose = () => {
+    dispatch(showEditPostOffAction());
+  };
 
-  const postPost = async post => {
+  const handleSubmit = e => {
+    e.preventDefault();
+    fetchPutPost(post);
+    if (image) {
+      addImage();
+    }
+
+    setImage("");
+    setFile(null);
+
+    dispatch(getPostsAction());
+    handleClose();
+  };
+
+  const handleDelete = async () => {
     try {
-      const resp = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
-        method: "POST",
-        headers: {
-          Authorization: token,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(post),
+      const resp = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + id, {
+        method: "DELETE",
+        headers: { Authorization: token },
       });
       if (resp.ok) {
-        const data = await resp.json();
-        addImage(data._id);
-        alert("Post effettuato correttamente");
         dispatch(getPostsAction());
-        setImage("");
-        setFile(null);
         handleClose();
+        alert("Post eliminato");
       } else {
-        console.log(resp);
-        throw new Error("Errore nel post");
+        throw new Error("Errore nel ...");
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  const addImage = async id => {
+  const addImage = async () => {
     const data = new FormData();
     data.append("post", file);
     try {
@@ -67,11 +75,50 @@ const AddPostForm = () => {
     }
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    postPost(post);
-    setText("");
+  const fetchPutPost = async post => {
+    try {
+      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify(post),
+      });
+      if (resp.ok) {
+        const post = await resp.json();
+        setText(post.text);
+        alert("Modificato con successo");
+      } else {
+        throw new Error("Errore nel reperimento del post");
+      }
+    } catch (error) {
+      alert(error);
+    }
   };
+
+  const fetchGetPost = async () => {
+    try {
+      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${id}`, {
+        method: "GET",
+        headers: { Authorization: token },
+      });
+      if (resp.ok) {
+        const post = await resp.json();
+        setText(post.text);
+      } else {
+        throw new Error("Errore nel reperimento del post");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (id) {
+      fetchGetPost();
+    }
+  }, [id]);
 
   return (
     user && (
@@ -107,8 +154,12 @@ const AddPostForm = () => {
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>
+            <Button variant="outline-danger" type="button" className="rounded-pill" onClick={handleDelete}>
+              Elimina
+            </Button>
+
             <Button variant="primary" type="submit" className="rounded-pill">
-              Pubblica
+              Modifica
             </Button>
           </Modal.Footer>
         </Form>
@@ -117,4 +168,4 @@ const AddPostForm = () => {
   );
 };
 
-export default AddPostForm;
+export default EditPostModal;

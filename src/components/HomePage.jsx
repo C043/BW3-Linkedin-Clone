@@ -9,20 +9,19 @@ import { useEffect } from "react";
 import { getPostsAction } from "../redux/actions";
 import PostComponent from "./PostComponent";
 import AddPostComponent from "./AddPostComponent";
-import ModalPostEdit from "./ModalPostEdit";
+import EditPostModal from "./EditPostModal";
 
 const HomePage = () => {
   const posts = useSelector(state => state.posts.content);
   const dispatch = useDispatch();
 
-  const id = useSelector(state => state.item.selectedPost)
+  const id = useSelector(state => state.item.selectedPost);
 
   useEffect(() => {
     dispatch(getPostsAction());
   }, []);
   return (
     <>
-
       <Row>
         <Col xs="12" md="4" lg="3">
           <Hero />
@@ -55,8 +54,7 @@ const HomePage = () => {
           <HomeFooter />
         </Col>
       </Row>
-      <ModalPostEdit id={id} />
-
+      <EditPostModal id={id} />
     </>
   );
 };

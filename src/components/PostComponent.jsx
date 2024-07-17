@@ -3,11 +3,11 @@
 import { Image } from "react-bootstrap";
 import { GlobeAmericas, Pencil } from "react-bootstrap-icons";
 import InteractionComponent from "./InteractionComponent";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectPostAction, showEditPostOnAction } from "../redux/actions";
-import { useSelector } from "react-redux";
 
 const PostComponent = ({ id, userImage, username, text, date, image }) => {
+  const user = useSelector(state => state.profile.content);
   const dispatch = useDispatch();
 
   const handleClick = () => {
