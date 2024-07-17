@@ -4,6 +4,8 @@ import userListReducer from "../reducer/userListReducer";
 import experiencesReducer from "../reducer/experencesReducer";
 import showModalReducer from "../reducer/showModalReducer";
 import itemSelectedReducer from "../reducer/itemSelectedReducer";
+import postsReducer from "../reducer/postsReducer";
+
 
 const rootReducer = combineReducers({
   profile: profileReducer,
@@ -11,6 +13,7 @@ const rootReducer = combineReducers({
   experiences: experiencesReducer,
   show: showModalReducer,
   item: itemSelectedReducer,
+  posts: postsReducer
 });
 
 const store = configureStore({
