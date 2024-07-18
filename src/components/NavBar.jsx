@@ -183,7 +183,15 @@ const NavBar = () => {
               </Col>
               <Col>
                 <NavDropdown
-                  title={<Image src={profile.image} alt="DP" width={30} height={30} className="rounded-circle" />}
+                  title={
+                    <Image
+                      src={profile.image}
+                      alt="DP"
+                      width={30}
+                      height={30}
+                      className="rounded-circle object-fit-cover"
+                    />
+                  }
                   id="basic-nav-dropdown"
                   drop="down"
                   align={"end"}
