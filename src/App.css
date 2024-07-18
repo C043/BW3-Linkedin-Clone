@@ -16,35 +16,43 @@ body {
   }
 
   .search-input {
-    width: 150px;
+    width: 100px;
     transition: width 0.5s;
 
     &:focus {
       width: 175px;
       transition: width 0.5s;
     }
-    @media screen and (max-width: 320px) {
-      width: 130px;
+    @media screen and (min-width: 320px) {
+      width: 100px;
       &:focus {
-        width: 150px;
+        width: 140px;
         transition: width 0.5s;
       }
     }
-    @media screen and (max-width: 768px) {
-      width: 200px;
+    @media screen and (min-width: 425px) {
+      width: 150px;
       &:focus {
-        width: 300px;
+        width: 200px;
         transition: width 0.5s;
       }
     }
-    @media screen and (max-width: 1024px) {
+
+    @media screen and (min-width: 768px) {
+      width: 250px;
+      &:focus {
+        width: 350px;
+        transition: width 0.5s;
+      }
+    }
+    @media screen and (min-width: 1024px) {
       width: 200px;
       &:focus {
         width: 550px;
         transition: width 0.5s;
       }
     }
-    @media screen and (max-width: 1440px) {
+    @media screen and (min-width: 1440px) {
       width: 200px;
       &:focus {
         width: 600px;
