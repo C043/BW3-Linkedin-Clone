@@ -1,8 +1,9 @@
-import { GET_USER, IS_LOADING_OFF, IS_LOADING_ON } from "../actions";
+import { GET_USER, HAS_ERROR_OFF, HAS_ERROR_ON, IS_LOADING_OFF, IS_LOADING_ON } from "../actions";
 
 const initialState = {
   content: null,
   isLoading: true,
+  hasError: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -22,6 +23,17 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         isLoading: action.payload,
       };
+    case HAS_ERROR_ON:
+      return {
+        ...state,
+        hasError: action.payload,
+      };
+    case HAS_ERROR_OFF:
+      return {
+        ...state,
+        hasError: action.payload,
+      };
+
     default:
       return state;
   }

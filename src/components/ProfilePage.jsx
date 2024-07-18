@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getExperiencesAction } from "../redux/actions";
-import { Col, Row, Spinner } from "react-bootstrap";
+import { Alert, Col, Row, Spinner } from "react-bootstrap";
 import ContentBox from "./ContentBox";
 import ExperienceCard from "./ExperienceContent";
 import AnalisysContent from "./AnalisysContent";
@@ -10,11 +10,14 @@ import EducationContent from "./EducationContent";
 import Hero from "./Hero";
 import FooterComponent from "./FooterComponent";
 import SideBar from "./SideBar";
+import ErrorComponent from "./ErrorComponent";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
 
   const isLoading = useSelector(state => state.profile.isLoading);
+
+  const hasError = useSelector(state => state.profile.hasError);
 
   useEffect(() => {
     dispatch(getExperiencesAction());
@@ -23,11 +26,12 @@ const ProfilePage = () => {
   return (
     <Row>
       <Col xs="12" md="7" lg="8">
-        {isLoading ? (
+        {isLoading && (
           <div className="d-flex justify-content-center align-items-center mt-5">
             <Spinner variant="primary" />
           </div>
-        ) : (
+        )}
+        {hasError === false && (
           <>
             <Hero big />
             <ContentBox title={"Analisi"} content={<AnalisysContent />} privacy />
@@ -36,15 +40,16 @@ const ProfilePage = () => {
             <ContentBox title={"Formazione"} content={<EducationContent />} />
           </>
         )}
+        {hasError && <ErrorComponent />}
       </Col>
       <Col md="5" lg="4" className="d-none d-md-block">
-        {isLoading ? (
+        {isLoading && (
           <div className="d-flex justify-content-center align-items-center mt-5">
             <Spinner variant="primary" />
           </div>
-        ) : (
-          <SideBar />
         )}
+        {hasError === false && <SideBar />}
+        {hasError && <ErrorComponent />}
       </Col>
       <FooterComponent />
     </Row>

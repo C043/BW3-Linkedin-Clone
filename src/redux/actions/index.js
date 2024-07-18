@@ -22,12 +22,18 @@ export const SHOW_EDIT_POST_OFF = "SHOW_EDIT_POST_OFF";
 export const SELECT_POST = "SELECT_POST";
 export const IS_LOADING_ON = "IS_LOADING_ON";
 export const IS_LOADING_OFF = "IS_LOADING_OFF";
+export const HAS_ERROR_ON = "HAS_ERROR_ON";
+export const HAS_ERROR_OFF = "HAS_ERROR_OFF";
 
 export const isLoadingOnAction = () => ({ type: IS_LOADING_ON, payload: true });
 export const isLoadingOffAction = () => ({ type: IS_LOADING_OFF, payload: false });
 
+export const hasErrorOnAction = () => ({ type: HAS_ERROR_ON, payload: true });
+export const hasErrorOffAction = () => ({ type: HAS_ERROR_OFF, payload: false });
+
 export const getUserAction = () => {
   return async dispatch => {
+    dispatch(hasErrorOffAction());
     dispatch(isLoadingOnAction());
     try {
       const resp = await fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
@@ -42,6 +48,7 @@ export const getUserAction = () => {
       }
     } catch (error) {
       console.log(error);
+      dispatch(hasErrorOnAction());
     } finally {
       dispatch(isLoadingOffAction());
     }
@@ -89,6 +96,8 @@ export const getExperiencesAction = () => {
 
 export const getPostsAction = () => {
   return async dispatch => {
+    dispatch(hasErrorOffAction());
+
     dispatch(isLoadingOnAction());
 
     try {
@@ -104,6 +113,7 @@ export const getPostsAction = () => {
       }
     } catch (error) {
       console.log(error);
+      dispatch(hasErrorOnAction());
     } finally {
       dispatch(isLoadingOffAction());
     }
@@ -113,6 +123,8 @@ export const getPostsAction = () => {
 export const getJobsAction = (query = "", company = "", category = "") => {
   return async dispatch => {
     dispatch(isLoadingOnAction());
+    dispatch(hasErrorOffAction());
+
     try {
       let url = "https://strive-benchmark.herokuapp.com/api/jobs";
       if (query) {
@@ -135,6 +147,7 @@ export const getJobsAction = (query = "", company = "", category = "") => {
       }
     } catch (error) {
       console.log(error);
+      dispatch(hasErrorOnAction());
     } finally {
       dispatch(isLoadingOffAction());
     }
