@@ -5,8 +5,14 @@ import { CameraFill, EyeFill, ImageFill, PencilFill, Trash2Fill } from "react-bo
 import { getUserAction, showPicOffAction, showPicOnAction } from "../redux/actions";
 import { token } from "../../token";
 import { userId } from "../../userId";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePic = ({ small, position, edit }) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/me");
+  };
   const profile = useSelector(state => state.profile.content);
 
   const [showMod, setShowMod] = useState(false);
@@ -117,9 +123,9 @@ const ProfilePic = ({ small, position, edit }) => {
               ? `rounded-circle border border-white border-3 ${position}`
               : `rounded-circle border border-white border-5 ${position}`
           }
-          width={small ? "70px" : "120px"}
-          height={small ? "70px" : "120px"}
-          onClick={edit && handleShow}
+          width={small ? "70px" : "152px"}
+          height={small ? "70px" : "152px"}
+          onClick={edit ? handleShow : handleNavigate}
           style={{ cursor: "pointer", backgroundColor: "lightgray" }}
         />
       </>

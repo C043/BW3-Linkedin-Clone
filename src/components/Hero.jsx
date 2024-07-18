@@ -9,7 +9,7 @@ const Hero = ({ big }) => {
     user && (
       <div className="border rounded-4 bg-white mt-3">
         {big ? <HeroHead /> : <HeroHead small />}
-        <Row className={big ? "mb-3 p-3 mt-4" : "px-3 pt-3 mt-4"}>
+        <Row className={big ? "mb-3 p-4 mt-5" : "px-3 pt-3 mt-4"}>
           <Col xs="12" md="8">
             <div className="d-flex gap-2 align-items-center">
               <h4 id="NameProfile" className={big ? "" : "fs-5"}>

@@ -24,6 +24,8 @@ export const IS_LOADING_ON = "IS_LOADING_ON";
 export const IS_LOADING_OFF = "IS_LOADING_OFF";
 export const IS_POSTS_LOADING_ON = "IS_POSTS_LOADING_ON";
 export const IS_POSTS_LOADING_OFF = "IS_POSTS_LOADING_OFF";
+export const IS_JOBS_LOADING_ON = "IS_JOBS_LOADING_ON";
+export const IS_JOBS_LOADING_OFF = "IS_JOBS_LOADING_OFF";
 export const HAS_ERROR_ON = "HAS_ERROR_ON";
 export const HAS_ERROR_OFF = "HAS_ERROR_OFF";
 export const HAS_JOB_ERROR_ON = "HAS_JOB_ERROR_ON";
@@ -36,6 +38,9 @@ export const isLoadingOffAction = () => ({ type: IS_LOADING_OFF, payload: false 
 
 export const isPostsLoadingOnAction = () => ({ type: IS_POSTS_LOADING_ON, payload: true });
 export const isPostsLoadingOffAction = () => ({ type: IS_POSTS_LOADING_OFF, payload: false });
+
+export const isJobsLoadingOnAction = () => ({ type: IS_JOBS_LOADING_ON, payload: true });
+export const isJobsLoadingOffAction = () => ({ type: IS_JOBS_LOADING_OFF, payload: false });
 
 export const hasErrorOnAction = () => ({ type: HAS_ERROR_ON, payload: true });
 export const hasErrorOffAction = () => ({ type: HAS_ERROR_OFF, payload: false });
@@ -135,7 +140,7 @@ export const getPostsAction = () => {
 
 export const getJobsAction = (query = "", company = "", category = "") => {
   return async dispatch => {
-    dispatch(isLoadingOnAction());
+    dispatch(isJobsLoadingOnAction());
     dispatch(hasJobErrorOffAction());
 
     try {
@@ -162,7 +167,7 @@ export const getJobsAction = (query = "", company = "", category = "") => {
       console.log(error);
       dispatch(hasJobErrorOnAction());
     } finally {
-      dispatch(isLoadingOffAction());
+      dispatch(isJobsLoadingOffAction());
     }
   };
 };
