@@ -57,9 +57,14 @@ const NavBar = () => {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Row className="ms-auto">
+            <Row className="ms-auto mt-3 mt-lg-0">
               <Col className="justify-content-center align-items-center">
-                <NavLink to="/" className={"text-dark"}>
+                <NavLink
+                  to="/"
+                  className={
+                    location.pathname === "/" ? "pb-3 border-2 border-black border-bottom text-dark" : "text-dark"
+                  }
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -91,13 +96,19 @@ const NavBar = () => {
                 </Nav.Link>
               </Col>
               <Col>
-                <NavLink to={"/jobs"} onClick={() => dispatch(getJobsAction())}>
+                <NavLink
+                  to={"/jobs"}
+                  onClick={() => dispatch(getJobsAction())}
+                  className={
+                    location.pathname === "/jobs" ? "pb-3 border-2 border-black border-bottom text-dark" : "text-dark"
+                  }
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
                     className="mercado-match"
-                    fill={location.pathname === "/jobs" ? "black" : "currentColor"}
+                    fill={location.pathname === "/jobs" ? "dark" : "currentColor"}
                     width="24"
                     height="24"
                     focusable="false"

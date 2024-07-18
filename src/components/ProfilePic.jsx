@@ -6,7 +6,7 @@ import { getUserAction, showPicOffAction, showPicOnAction } from "../redux/actio
 import { token } from "../../token";
 import { userId } from "../../userId";
 
-const ProfilePic = ({ small, position }) => {
+const ProfilePic = ({ small, position, edit }) => {
   const profile = useSelector(state => state.profile.content);
 
   const [showMod, setShowMod] = useState(false);
@@ -120,7 +120,7 @@ const ProfilePic = ({ small, position }) => {
           }
           width={small ? "70px" : "120px"}
           height={small ? "70px" : "120px"}
-          onClick={handleShow}
+          onClick={edit && handleShow}
           style={{ cursor: "pointer" }}
         />
       </>
