@@ -13,7 +13,9 @@ import SideBar from "./SideBar";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
+
   const isLoading = useSelector(state => state.profile.isLoading);
+
   useEffect(() => {
     dispatch(getExperiencesAction());
   }, []);
@@ -36,7 +38,13 @@ const ProfilePage = () => {
         )}
       </Col>
       <Col md="5" lg="4" className="d-none d-md-block">
-        <SideBar />
+        {isLoading ? (
+          <div className="d-flex justify-content-center align-items-center mt-5">
+            <Spinner variant="primary" />
+          </div>
+        ) : (
+          <SideBar />
+        )}
       </Col>
       <FooterComponent />
     </Row>

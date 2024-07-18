@@ -28,6 +28,7 @@ export const isLoadingOffAction = () => ({ type: IS_LOADING_OFF, payload: false 
 
 export const getUserAction = () => {
   return async dispatch => {
+    dispatch(isLoadingOnAction());
     try {
       const resp = await fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
         method: "GET",
@@ -62,6 +63,7 @@ export const getUsersListAction = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
     }
   };
 };
