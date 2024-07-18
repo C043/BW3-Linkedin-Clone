@@ -32,21 +32,24 @@ const JobsPage = () => {
         </div>
       </Col>
       <Col xs="12" md="8" lg="5" xl="6">
-        {jobs.slice(0, 100).map(job => (
-          <ContentBox
-            key={job._id}
-            content={
-              <JobComponent
-                url={job.url}
-                title={job.title}
-                company={job.company_name}
-                category={job.category}
-                date={job.publication_date.slice(0, 10)}
-              />
-            }
-            noHeader
-          />
-        ))}
+        {jobs
+          .toReversed()
+          .slice(0, 100)
+          .map(job => (
+            <ContentBox
+              key={job._id}
+              content={
+                <JobComponent
+                  url={job.url}
+                  title={job.title}
+                  company={job.company_name}
+                  category={job.category}
+                  date={job.publication_date.slice(0, 10)}
+                />
+              }
+              noHeader
+            />
+          ))}
       </Col>
       <Col xs="12" lg="4" xl="3" className="d-none d-lg-block">
         <HomeFooter />

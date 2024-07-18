@@ -55,7 +55,7 @@ body {
   .mercado-match {
     color: #575656;
 
-    :hover {
+    &:hover {
       color: black;
     }
   }

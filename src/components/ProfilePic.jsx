@@ -43,10 +43,6 @@ const ProfilePic = ({ small, position }) => {
     }
   };
 
-  /* useEffect(() => {
-  
-  }, []) */
-
   return (
     profile && (
       <>

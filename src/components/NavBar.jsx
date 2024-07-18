@@ -1,12 +1,15 @@
 import { Col, Container, Form, FormLabel, Image, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
 import logo from "../assets/LinkedIn_logo_initials.png.webp";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import ProfilePic from "./ProfilePic";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { getJobsAction } from "../redux/actions";
 
 const NavBar = () => {
+  const location = useLocation();
+  console.log(location);
+
   const profile = useSelector(state => state.profile.content);
   const user = useSelector(state => state.profile.content);
 
@@ -61,7 +64,7 @@ const NavBar = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
-                    fill="currentColor"
+                    fill={location.pathname === "/" ? "black" : "currentColor"}
                     className="mercado-match"
                     width="24"
                     height="24"
@@ -88,13 +91,13 @@ const NavBar = () => {
                 </Nav.Link>
               </Col>
               <Col>
-                <NavLink to={"/jobs"}>
+                <NavLink to={"/jobs"} onClick={() => dispatch(getJobsAction())}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
-                    fill="currentColor"
                     className="mercado-match"
+                    fill={location.pathname === "/jobs" ? "black" : "currentColor"}
                     width="24"
                     height="24"
                     focusable="false"
