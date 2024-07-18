@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 import Hero from "./Hero";
 import ContentBox from "./ContentBox";
 import HomeInsight from "./HomeInsight";
@@ -15,6 +15,9 @@ const HomePage = () => {
   const posts = useSelector(state => state.posts.content);
   const dispatch = useDispatch();
 
+  const isPostsLoading = useSelector(state => state.posts.isLoading);
+  const isProfileLoading = useSelector(state => state.profile.isLoading);
+
   const id = useSelector(state => state.item.selectedPost);
 
   useEffect(() => {
@@ -27,12 +30,25 @@ const HomePage = () => {
     <>
       <Row>
         <Col xs="12" md="4" lg="3">
-          <Hero />
-          <ContentBox content={<HomeInsight />} noHeader />
+          {isProfileLoading ? (
+            <div className="d-flex justify-content-center mt-5">
+              <Spinner variant="primary" />
+            </div>
+          ) : (
+            <>
+              <Hero />
+              <ContentBox content={<HomeInsight />} noHeader />
+            </>
+          )}
         </Col>
         <Col xs="12" md="8" lg="5" xl="6">
           <ContentBox content={<AddPostComponent />} noHeader />
-          {posts &&
+          {isPostsLoading ? (
+            <div className="d-flex justify-content-center mt-5">
+              <Spinner variant="primary" />
+            </div>
+          ) : (
+            posts &&
             posts
               .toReversed()
               .slice(0, 100)
@@ -50,7 +66,8 @@ const HomePage = () => {
                     />
                   }
                 />
-              ))}
+              ))
+          )}
         </Col>
         <Col xs="12" lg="4" xl="3" className="d-none d-lg-block">
           <ContentBox content={<LinkedinNews />} noHeader />

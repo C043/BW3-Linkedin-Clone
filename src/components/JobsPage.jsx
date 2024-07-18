@@ -34,7 +34,7 @@ const JobsPage = () => {
       </Col>
       <Col xs="12" md="8" lg="5" xl="6">
         {isLoading ? (
-          <div className="d-flex justify-content-center mt-5 w-100">
+          <div className="d-flex justify-content-center mt-5">
             <Spinner variant="primary" />
           </div>
         ) : (

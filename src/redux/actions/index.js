@@ -87,6 +87,8 @@ export const getExperiencesAction = () => {
 
 export const getPostsAction = () => {
   return async dispatch => {
+    dispatch(isLoadingOnAction());
+
     try {
       const resp = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
         method: "GET",
@@ -100,6 +102,8 @@ export const getPostsAction = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch(isLoadingOffAction());
     }
   };
 };
