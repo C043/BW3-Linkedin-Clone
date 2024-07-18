@@ -1,6 +1,9 @@
 import { Pencil } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
+import { getUserAction } from "../redux/actions";
 
 const EditBadge = ({ absolute, color }) => {
+  const dispatch = useDispatch();
   return (
     <div
       className={
@@ -8,7 +11,7 @@ const EditBadge = ({ absolute, color }) => {
         "d-flex justify-content-center align-items-center rounded-circle bg-light position-absolute edit-badge"
       }
     >
-      <Pencil color={color} />
+      <Pencil type="button" color={color} />
     </div>
   );
 };
