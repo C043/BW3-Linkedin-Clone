@@ -6,7 +6,7 @@ import LinkedinNews from "./LinkedinNews";
 import HomeFooter from "./HomeFooter";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getJobsAction, getPostsAction } from "../redux/actions";
+import { getPostsAction } from "../redux/actions";
 import PostComponent from "./PostComponent";
 import AddPostComponent from "./AddPostComponent";
 import EditPostModal from "./EditPostModal";
@@ -22,7 +22,6 @@ const HomePage = () => {
     setInterval(() => {
       dispatch(getPostsAction());
     }, 60000);
-
   }, []);
   return (
     <>

@@ -6,7 +6,7 @@ import FriendsRecommended from "./FriendsRecommended";
 const SideBar = () => {
   return (
     <>
-      <div className=" border rounded-4 bg-white mt-2 p-3">
+      <div className=" border rounded-4 bg-white mt-3 p-3">
         <div className="d-flex justify-content-between align-items-center">
           <h4 className="h6">Lingua del profilo</h4>
           <Pencil size={23} />
