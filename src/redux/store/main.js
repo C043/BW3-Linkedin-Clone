@@ -5,6 +5,7 @@ import experiencesReducer from "../reducer/experencesReducer";
 import showModalReducer from "../reducer/showModalReducer";
 import itemSelectedReducer from "../reducer/itemSelectedReducer";
 import postsReducer from "../reducer/postsReducer";
+import jobReducer from "../reducer/jobReducer";
 
 
 const rootReducer = combineReducers({
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   experiences: experiencesReducer,
   show: showModalReducer,
   item: itemSelectedReducer,
-  posts: postsReducer
+  posts: postsReducer,
+  job: jobReducer
 });
 
 const store = configureStore({

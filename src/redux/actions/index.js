@@ -5,6 +5,7 @@ export const GET_USER = "GET_USER";
 export const GET_USERS_LIST = "GET_USERS_LIST";
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
 export const GET_POSTS = "GET_POSTS";
+export const GET_JOBS = "GET_JOBS"
 export const SHOW_EXPERIENCE_ON = "SHOW_EXPERIENCE_ON";
 export const SHOW_EXPERIENCE_OFF = "SHOW_EXPERIENCE_OFF";
 export const SHOW_EDIT_EXPERIENCE_ON = "SHOW_EDIT_EXPERIENCE_ON";
@@ -95,6 +96,25 @@ export const getPostsAction = () => {
     }
   };
 };
+
+export const getJobsAction = () => {
+  return async dispatch => {
+    try {
+      const resp = await fetch("https://strive-benchmark.herokuapp.com/api/jobs", {
+        method: "GET",
+        headers: { Authorization: token },
+      });
+      if (resp.ok) {
+        const jobs = await resp.json();
+        dispatch({ type: GET_JOBS, payload: jobs.data });
+      } else {
+        throw new Error("Errore nel reperimento dei lavori");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
 
 export const showExperienceOnAction = () => ({ type: SHOW_EXPERIENCE_ON, payload: true });
 export const showExperienceOffAction = () => ({ type: SHOW_EXPERIENCE_OFF, payload: false });
