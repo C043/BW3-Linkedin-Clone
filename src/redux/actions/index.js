@@ -97,13 +97,17 @@ export const getPostsAction = () => {
   };
 };
 
-export const getJobsAction = (query = "") => {
+export const getJobsAction = (query = "", company = "", category = "") => {
   return async dispatch => {
     try {
-      const url = query
-        ? `https://strive-benchmark.herokuapp.com/api/jobs?search=${query}`
-        : "https://strive-benchmark.herokuapp.com/api/jobs";
-
+      let url = "https://strive-benchmark.herokuapp.com/api/jobs";
+      if (query) {
+        url = `https://strive-benchmark.herokuapp.com/api/jobs?search=${query}`;
+      } else if (company) {
+        url = `https://strive-benchmark.herokuapp.com/api/jobs?company=${company}`;
+      } else if (category) {
+        url = `https://strive-benchmark.herokuapp.com/api/jobs?category=${category}`;
+      }
       const resp = await fetch(url, {
         method: "GET",
         headers: { Authorization: token },

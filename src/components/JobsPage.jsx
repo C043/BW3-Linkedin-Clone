@@ -34,6 +34,7 @@ const JobsPage = () => {
       <Col xs="12" md="8" lg="5" xl="6">
         {jobs.slice(0, 100).map(job => (
           <ContentBox
+            key={job._id}
             content={
               <JobComponent
                 url={job.url}
