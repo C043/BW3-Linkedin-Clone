@@ -2,11 +2,24 @@ import { Col, Container, Form, FormLabel, Image, Nav, Navbar, NavDropdown, Row }
 import logo from "../assets/LinkedIn_logo_initials.png.webp";
 import { NavLink } from "react-router-dom";
 import ProfilePic from "./ProfilePic";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { getJobsAction } from "../redux/actions";
 
 const NavBar = () => {
   const profile = useSelector(state => state.profile.content);
   const user = useSelector(state => state.profile.content);
+
+  const [query, setQuery] = useState("");
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(getJobsAction(query));
+    setQuery("");
+  };
+
   return (
     user && (
       <Navbar expand="lg" id="navbar" className="sticky-top bg-white">
@@ -15,7 +28,7 @@ const NavBar = () => {
             <Image src={logo} alt="logo" width={40} />
           </NavLink>
 
-          <Form>
+          <Form onSubmit={e => handleSubmit(e)}>
             <Form.Group className="border d-flex align-items-center ps-2 rounded-3" controlId="search">
               <FormLabel type="button">
                 <svg
@@ -29,7 +42,13 @@ const NavBar = () => {
                   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                 </svg>
               </FormLabel>
-              <Form.Control type="text" placeholder="Cerca" className="mr-sm-2 border-0 search-input" />
+              <Form.Control
+                type="text"
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                placeholder="Cerca"
+                className="mr-sm-2 border-0 search-input"
+              />
             </Form.Group>
           </Form>
 
