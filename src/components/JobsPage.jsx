@@ -3,8 +3,19 @@ import ContentBox from "./ContentBox";
 import JobSideBar from "./JobSideBar";
 import { PencilSquare } from "react-bootstrap-icons";
 import HomeFooter from "./HomeFooter";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getJobsAction } from "../redux/actions";
+import JobComponent from "./JobComponent";
 
 const JobsPage = () => {
+  const jobs = useSelector(state => state.jobs.content);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getJobsAction());
+  }, []);
+
   return (
     <Row>
       <Col xs="12" md="4" lg="3">
@@ -20,7 +31,22 @@ const JobsPage = () => {
           </Button>
         </div>
       </Col>
-      <Col xs="12" md="8" lg="5" xl="6"></Col>
+      <Col xs="12" md="8" lg="5" xl="6">
+        {jobs.slice(0, 100).map(job => (
+          <ContentBox
+            content={
+              <JobComponent
+                url={job.url}
+                title={job.title}
+                company={job.company_name}
+                category={job.category}
+                date={job.publication_date.slice(0, 10)}
+              />
+            }
+            noHeader
+          />
+        ))}
+      </Col>
       <Col xs="12" lg="4" xl="3" className="d-none d-lg-block">
         <HomeFooter />
       </Col>

@@ -7,7 +7,6 @@ import itemSelectedReducer from "../reducer/itemSelectedReducer";
 import postsReducer from "../reducer/postsReducer";
 import jobReducer from "../reducer/jobReducer";
 
-
 const rootReducer = combineReducers({
   profile: profileReducer,
   users: userListReducer,
@@ -15,7 +14,7 @@ const rootReducer = combineReducers({
   show: showModalReducer,
   item: itemSelectedReducer,
   posts: postsReducer,
-  job: jobReducer
+  jobs: jobReducer,
 });
 
 const store = configureStore({
