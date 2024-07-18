@@ -25,9 +25,6 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getPostsAction());
-    setInterval(() => {
-      dispatch(getPostsAction());
-    }, 60000);
   }, []);
   return (
     <>

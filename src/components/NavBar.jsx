@@ -4,7 +4,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import ProfilePic from "./ProfilePic";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { getJobsAction } from "../redux/actions";
+import { getJobsAction, getPostsAction } from "../redux/actions";
 
 const NavBar = () => {
   const location = useLocation();
@@ -19,7 +19,6 @@ const NavBar = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    navigate("/jobs");
     dispatch(getJobsAction(query));
     setQuery("");
   };
@@ -49,8 +48,9 @@ const NavBar = () => {
               <Form.Control
                 type="text"
                 value={query}
+                onFocus={() => navigate("/jobs")}
                 onChange={e => setQuery(e.target.value)}
-                placeholder="Cerca"
+                placeholder="Cerca lavoro"
                 className="mr-sm-2 border-0 search-input"
               />
             </Form.Group>
@@ -65,6 +65,7 @@ const NavBar = () => {
                   className={
                     location.pathname === "/" ? "pb-3 border-2 border-black border-bottom text-dark" : "text-dark"
                   }
+                  onClick={() => dispatch(getPostsAction())}
                 >
                   {location.pathname === "/" ? (
                     <svg
@@ -72,7 +73,7 @@ const NavBar = () => {
                       viewBox="0 0 24 24"
                       data-supported-dps="24x24"
                       fill="dark"
-                      class="mercado-match"
+                      className="mercado-match"
                       width="24"
                       height="24"
                       focusable="false"
@@ -125,7 +126,7 @@ const NavBar = () => {
                       viewBox="0 0 24 24"
                       data-supported-dps="24x24"
                       fill="dark"
-                      class="mercado-match"
+                      className="mercado-match"
                       width="24"
                       height="24"
                       focusable="false"

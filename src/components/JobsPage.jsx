@@ -3,7 +3,9 @@ import ContentBox from "./ContentBox";
 import JobSideBar from "./JobSideBar";
 import { PencilSquare } from "react-bootstrap-icons";
 import HomeFooter from "./HomeFooter";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getJobsAction } from "../redux/actions";
 import JobComponent from "./JobComponent";
 import ErrorComponent from "./ErrorComponent";
 
@@ -11,6 +13,11 @@ const JobsPage = () => {
   const jobs = useSelector(state => state.jobs.content);
   const isLoading = useSelector(state => state.jobs.isLoading);
   const hasError = useSelector(state => state.jobs.hasError);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getJobsAction());
+  }, []);
 
   return (
     <Row>
