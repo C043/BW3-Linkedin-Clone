@@ -1,4 +1,4 @@
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Row, Spinner } from "react-bootstrap";
 import ContentBox from "./ContentBox";
 import JobSideBar from "./JobSideBar";
 import { PencilSquare } from "react-bootstrap-icons";
@@ -10,6 +10,7 @@ import JobComponent from "./JobComponent";
 
 const JobsPage = () => {
   const jobs = useSelector(state => state.jobs.content);
+  const isLoading = useSelector(state => state.jobs.isLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,24 +33,30 @@ const JobsPage = () => {
         </div>
       </Col>
       <Col xs="12" md="8" lg="5" xl="6">
-        {jobs
-          .toReversed()
-          .slice(0, 100)
-          .map(job => (
-            <ContentBox
-              key={job._id}
-              content={
-                <JobComponent
-                  url={job.url}
-                  title={job.title}
-                  company={job.company_name}
-                  category={job.category}
-                  date={job.publication_date.slice(0, 10)}
-                />
-              }
-              noHeader
-            />
-          ))}
+        {isLoading ? (
+          <div className="d-flex justify-content-center mt-5 w-100">
+            <Spinner variant="primary" />
+          </div>
+        ) : (
+          jobs
+            .toReversed()
+            .slice(0, 100)
+            .map(job => (
+              <ContentBox
+                key={job._id}
+                content={
+                  <JobComponent
+                    url={job.url}
+                    title={job.title}
+                    company={job.company_name}
+                    category={job.category}
+                    date={job.publication_date.slice(0, 10)}
+                  />
+                }
+                noHeader
+              />
+            ))
+        )}
       </Col>
       <Col xs="12" lg="4" xl="3" className="d-none d-lg-block">
         <HomeFooter />

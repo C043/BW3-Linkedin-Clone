@@ -20,6 +20,11 @@ export const SHOW_ADD_POST_OFF = "SHOW_ADD_POST_OFF";
 export const SHOW_EDIT_POST_ON = "SHOW_EDIT_POST_ON";
 export const SHOW_EDIT_POST_OFF = "SHOW_EDIT_POST_OFF";
 export const SELECT_POST = "SELECT_POST";
+export const IS_LOADING_ON = "IS_LOADING_ON";
+export const IS_LOADING_OFF = "IS_LOADING_OFF";
+
+export const isLoadingOnAction = () => ({ type: IS_LOADING_ON, payload: true });
+export const isLoadingOffAction = () => ({ type: IS_LOADING_OFF, payload: false });
 
 export const getUserAction = () => {
   return async dispatch => {
@@ -36,6 +41,8 @@ export const getUserAction = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch(isLoadingOffAction());
     }
   };
 };
@@ -99,6 +106,7 @@ export const getPostsAction = () => {
 
 export const getJobsAction = (query = "", company = "", category = "") => {
   return async dispatch => {
+    dispatch(isLoadingOnAction());
     try {
       let url = "https://strive-benchmark.herokuapp.com/api/jobs";
       if (query) {
@@ -121,6 +129,8 @@ export const getJobsAction = (query = "", company = "", category = "") => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch(isLoadingOffAction());
     }
   };
 };
