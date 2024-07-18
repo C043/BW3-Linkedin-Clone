@@ -20,16 +20,16 @@ const FriendsRecommended = () => {
           <Row className="mb-2">
             <Col xs="4">
               <Image
-                fluid
+
                 src={user.image}
                 alt="immagine profilo"
-                width={70}
-                height={70}
-                className="pic-similar-profiles rounded-circle object-fit-cover d-block w-100"
+                width={50}
+                height={50}
+                className="pic-profiles rounded-circle object-fit-cover d-block mx-auto"
               />
             </Col>
 
-            <Col xs="8">
+            <Col xs="8" className="ps-0">
               <h5>
                 {user.name} {user.surname}
               </h5>

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Button, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import HeroHead from "./HeroHead";
@@ -37,9 +38,7 @@ const Hero = ({ big }) => {
               <Button variant="outline-primary" className="p-0 px-2 rounded-pill ">
                 Add section in profile
               </Button>
-              <Button variant="outline-primary" className="p-0 px-2 rounded-pill ">
-                M Profile
-              </Button>
+
               <Button variant="outline-secondary" className="p-0 px-2 rounded-pill ">
                 More
               </Button>
