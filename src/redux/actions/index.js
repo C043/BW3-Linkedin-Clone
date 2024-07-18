@@ -106,6 +106,7 @@ export const getPostsAction = () => {
 
 export const getJobsAction = (query = "", company = "", category = "") => {
   return async dispatch => {
+    dispatch(isLoadingOnAction());
     try {
       let url = "https://strive-benchmark.herokuapp.com/api/jobs";
       if (query) {
@@ -128,6 +129,8 @@ export const getJobsAction = (query = "", company = "", category = "") => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch(isLoadingOffAction());
     }
   };
 };

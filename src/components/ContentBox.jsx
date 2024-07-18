@@ -9,7 +9,7 @@ const ContentBox = ({ title, content, editable, privacy, noHeader }) => {
   const handleShow = () => dispatch(showExperienceOnAction());
 
   return (
-    <section className="rounded-4 border px-3 my-2 bg-white">
+    <section className="rounded-4 border px-3 my-3 bg-white">
       {!noHeader && (
         <div className="d-flex align-items-center gap-2 my-3">
           <div className="flex-column">
