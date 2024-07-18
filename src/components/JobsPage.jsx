@@ -1,4 +1,4 @@
-import { Button, Col, Row, Spinner } from "react-bootstrap";
+import { Alert, Button, Col, Row, Spinner } from "react-bootstrap";
 import ContentBox from "./ContentBox";
 import JobSideBar from "./JobSideBar";
 import { PencilSquare } from "react-bootstrap-icons";
@@ -33,14 +33,14 @@ const JobsPage = () => {
         </div>
       </Col>
       <Col xs="12" md="8" lg="5" xl="6">
-        {isLoading ? (
+        {isLoading && jobs.length > 0 ? (
           <div className="d-flex justify-content-center mt-5">
             <Spinner variant="primary" />
           </div>
         ) : (
           jobs
             .toReversed()
-            .slice(0, 100)
+            .slice(0, 50)
             .map(job => (
               <ContentBox
                 key={job._id}
@@ -56,6 +56,11 @@ const JobsPage = () => {
                 noHeader
               />
             ))
+        )}
+        {jobs.length === 0 && (
+          <Alert variant="info" className="mt-3">
+            Nessun risultato
+          </Alert>
         )}
       </Col>
       <Col xs="12" lg="4" xl="3" className="d-none d-lg-block">

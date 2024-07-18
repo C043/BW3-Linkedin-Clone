@@ -8,7 +8,6 @@ import { getJobsAction } from "../redux/actions";
 
 const NavBar = () => {
   const location = useLocation();
-  console.log(location);
 
   const profile = useSelector(state => state.profile.content);
   const user = useSelector(state => state.profile.content);
