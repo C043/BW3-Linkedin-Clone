@@ -1,5 +1,5 @@
-import { Col, Dropdown, DropdownItem, Form, Row } from "react-bootstrap";
-import { Gear, GearFill, QuestionCircle, ShieldFill } from "react-bootstrap-icons";
+import { Col, Form, Row } from "react-bootstrap";
+import { GearFill, QuestionCircle, ShieldFill } from "react-bootstrap-icons";
 
 const FooterComponent = () => {
   return (

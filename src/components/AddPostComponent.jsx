@@ -13,7 +13,7 @@ const AddPostComponent = () => {
         <ProfilePic small position={""} />
         <button
           type="button"
-          className="w-100 rounded-pill border px-3 py-3"
+          className="w-100 rounded-pill border px-3 py-2"
           placeholder="Crea un post"
           onClick={handleOpen}
         >

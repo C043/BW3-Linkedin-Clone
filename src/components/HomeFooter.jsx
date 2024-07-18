@@ -4,31 +4,31 @@ const HomeFooter = () => {
   return (
     <div className="sticky-under-nav">
       <div className="d-flex justify-content-center flex-wrap gap-2">
-        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
+        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6 a-link">
           Informazioni
         </a>
-        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
+        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6 a-link">
           Accessibilità
         </a>
-        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
+        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6 a-link">
           Centro assistenza
         </a>
-        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
+        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6 a-link">
           Privacy e condizioni
         </a>
-        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
+        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6 a-link">
           Opzioni per gli annunci pubblicitari
         </a>
-        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
+        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6 a-link">
           Pubblicità
         </a>
-        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
+        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6 a-link">
           Servizi alle aziende
         </a>
-        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
+        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6 a-link">
           Scarica l'app Linkedin
         </a>
-        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
+        <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6 a-link">
           Altro
         </a>
       </div>
