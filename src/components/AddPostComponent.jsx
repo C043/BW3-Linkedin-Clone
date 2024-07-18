@@ -12,8 +12,9 @@ const AddPostComponent = () => {
       <div className="d-flex gap-2 my-3 align-items-center">
         <ProfilePic small position={""} />
         <button
+          id="add-post-component"
           type="button"
-          className="w-100 rounded-pill border px-3 py-2"
+          className="w-100 rounded-pill border border-dark px-3 py-3 text-start btn btn-white"
           placeholder="Crea un post"
           onClick={handleOpen}
         >

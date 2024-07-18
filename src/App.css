@@ -8,9 +8,6 @@ body {
     }
   }
 
-  .pic-profiles {
-  }
-
   .edit-badge {
     width: 30px;
     height: 30px;
@@ -54,6 +51,15 @@ body {
         transition: width 0.5s;
       }
     }
+  }
+}
+
+#add-post-component {
+  &:hover {
+    background-color: #f3f3f3;
+  }
+  &:active {
+    background-color: #e9e9e9;
   }
 }
 
