@@ -3,7 +3,7 @@ import { ArrowDown, InfoSquareFill } from "react-bootstrap-icons";
 const LinkedinNews = () => {
   return (
     <div className="flex-column my-2">
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center mb-2">
         <h5 className="m-0">Linkedin Notizie</h5>
         <InfoSquareFill className="ms-auto" />
       </div>
