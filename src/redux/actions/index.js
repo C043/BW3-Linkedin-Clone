@@ -26,6 +26,8 @@ export const HAS_ERROR_ON = "HAS_ERROR_ON";
 export const HAS_ERROR_OFF = "HAS_ERROR_OFF";
 export const HAS_JOB_ERROR_ON = "HAS_JOB_ERROR_ON";
 export const HAS_JOB_ERROR_OFF = "HAS_JOB_ERROR_OFF";
+export const HAS_POST_ERROR_ON = "HAS_POST_ERROR_ON";
+export const HAS_POST_ERROR_OFF = "HAS_POST_ERROR_OFF";
 
 export const isLoadingOnAction = () => ({ type: IS_LOADING_ON, payload: true });
 export const isLoadingOffAction = () => ({ type: IS_LOADING_OFF, payload: false });
@@ -35,6 +37,9 @@ export const hasErrorOffAction = () => ({ type: HAS_ERROR_OFF, payload: false })
 
 export const hasJobErrorOnAction = () => ({ type: HAS_JOB_ERROR_ON, payload: true });
 export const hasJobErrorOffAction = () => ({ type: HAS_JOB_ERROR_OFF, payload: false });
+
+export const hasPostErrorOnAction = () => ({ type: HAS_POST_ERROR_ON, payload: true });
+export const hasPostErrorOffAction = () => ({ type: HAS_POST_ERROR_OFF, payload: false });
 
 export const getUserAction = () => {
   return async dispatch => {
@@ -101,7 +106,7 @@ export const getExperiencesAction = () => {
 
 export const getPostsAction = () => {
   return async dispatch => {
-    dispatch(hasErrorOffAction());
+    dispatch(hasPostErrorOffAction());
     dispatch(isLoadingOnAction());
     try {
       const resp = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
@@ -116,7 +121,7 @@ export const getPostsAction = () => {
       }
     } catch (error) {
       console.log(error);
-      dispatch(hasErrorOnAction());
+      dispatch(hasPostErrorOnAction());
     } finally {
       dispatch(isLoadingOffAction());
     }

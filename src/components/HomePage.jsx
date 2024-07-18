@@ -10,6 +10,7 @@ import { getPostsAction } from "../redux/actions";
 import PostComponent from "./PostComponent";
 import AddPostComponent from "./AddPostComponent";
 import EditPostModal from "./EditPostModal";
+import ErrorComponent from "./ErrorComponent";
 
 const HomePage = () => {
   const posts = useSelector(state => state.posts.content);
@@ -17,6 +18,8 @@ const HomePage = () => {
 
   const isPostsLoading = useSelector(state => state.posts.isLoading);
   const isProfileLoading = useSelector(state => state.profile.isLoading);
+  const hasPostError = useSelector(state => state.posts.hasError);
+  const hasProfileError = useSelector(state => state.profile.hasError);
 
   const id = useSelector(state => state.item.selectedPost);
 
@@ -30,24 +33,27 @@ const HomePage = () => {
     <>
       <Row>
         <Col xs="12" md="4" lg="3">
-          {isProfileLoading ? (
+          {isProfileLoading && (
             <div className="d-flex justify-content-center mt-5">
               <Spinner variant="primary" />
             </div>
-          ) : (
+          )}{" "}
+          {hasProfileError === false && (
             <>
               <Hero />
               <ContentBox content={<HomeInsight />} noHeader />
             </>
           )}
+          {hasProfileError && <ErrorComponent />}
         </Col>
         <Col xs="12" md="8" lg="5" xl="6">
           <ContentBox content={<AddPostComponent />} noHeader />
-          {isPostsLoading ? (
+          {isPostsLoading && (
             <div className="d-flex justify-content-center mt-5">
               <Spinner variant="primary" />
             </div>
-          ) : (
+          )}{" "}
+          {hasPostError === false &&
             posts &&
             posts
               .toReversed()
@@ -66,8 +72,8 @@ const HomePage = () => {
                     />
                   }
                 />
-              ))
-          )}
+              ))}
+          {hasPostError && <ErrorComponent />}
         </Col>
         <Col xs="12" lg="4" xl="3" className="d-none d-lg-block">
           <ContentBox content={<LinkedinNews />} noHeader />
