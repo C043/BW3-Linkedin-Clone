@@ -20,11 +20,12 @@ const FriendsRecommended = () => {
           <Row className="mb-2">
             <Col xs="4">
               <Image
+                fluid
                 src={user.image}
                 alt="immagine profilo"
                 width={70}
                 height={70}
-                className="rounded-circle object-fit-cover"
+                className="pic-similar-profiles rounded-circle object-fit-cover d-block w-100"
               />
             </Col>
 
@@ -32,8 +33,8 @@ const FriendsRecommended = () => {
               <h5>
                 {user.name} {user.surname}
               </h5>
-              <p className="d-block text-truncate m-0">{user.title}</p>
-              <Button variant="outline-dark" size="sm" className="rounded-pill my-3">
+              <p className="d-block text-truncate ">{user.title}</p>
+              <Button variant="outline-dark" size="sm" className="rounded-pill">
                 {" "}
                 Collegati{" "}
               </Button>

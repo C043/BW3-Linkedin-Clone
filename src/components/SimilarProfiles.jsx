@@ -20,23 +20,21 @@ const SimilarProfiles = () => {
           <Row className="mb-2">
             <Col xs="4">
               <Image
+                fluid
                 src={user.image}
                 alt="immagine profilo"
                 width={70}
                 height={70}
-                className="rounded-circle object-fit-cover"
+                className="pic-similar-profiles rounded-circle object-fit-cover d-block w-100"
               />
             </Col>
 
-            <Col xs="8">
+            <Col xs="8" className="ps-0">
               <h5>
                 {user.name} {user.surname}
               </h5>
               <p className="d-block text-truncate ">{user.title}</p>
-              <Button variant="outline-dark" size="sm" className="rounded-pill">
-                {" "}
-                Visualizza profilo{" "}
-              </Button>
+              <Button variant="outline-dark" size="sm" className="rounded-pill">Visualizza profilo</Button>
             </Col>
           </Row>
           <hr />
