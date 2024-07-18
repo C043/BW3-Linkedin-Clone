@@ -16,7 +16,7 @@ const NavBar = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     dispatch(getJobsAction(query));
     setQuery("");

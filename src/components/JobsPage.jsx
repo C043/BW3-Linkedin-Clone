@@ -11,6 +11,8 @@ import JobComponent from "./JobComponent";
 const JobsPage = () => {
   const jobs = useSelector(state => state.jobs.content);
   const isLoading = useSelector(state => state.jobs.isLoading);
+  const hasError = useSelector(state => state.jobs.hasError);
+  const noResults = useSelector(state => state.posts.noResults);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,11 +35,12 @@ const JobsPage = () => {
         </div>
       </Col>
       <Col xs="12" md="8" lg="5" xl="6">
-        {isLoading && jobs.length > 0 ? (
+        {isLoading && (
           <div className="d-flex justify-content-center mt-5">
             <Spinner variant="primary" />
           </div>
-        ) : (
+        )}
+        {hasError === false &&
           jobs
             .toReversed()
             .slice(0, 50)
@@ -55,9 +58,8 @@ const JobsPage = () => {
                 }
                 noHeader
               />
-            ))
-        )}
-        {jobs.length === 0 && (
+            ))}
+        {jobs.length === 0 && isLoading === false && (
           <Alert variant="info" className="mt-3">
             Nessun risultato
           </Alert>

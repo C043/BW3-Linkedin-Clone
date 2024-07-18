@@ -97,9 +97,7 @@ export const getExperiencesAction = () => {
 export const getPostsAction = () => {
   return async dispatch => {
     dispatch(hasErrorOffAction());
-
     dispatch(isLoadingOnAction());
-
     try {
       const resp = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
         method: "GET",
