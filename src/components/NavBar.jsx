@@ -121,7 +121,6 @@ const NavBar = () => {
                                 </Nav.Link>
                             </Col>
                             <Col>
-
                                 <NavDropdown title={<Image src={profile.image} alt="DP" width={30} className="rounded-circle"/>} id="basic-nav-dropdown" className="dropstart">
                                     <div className="d-flex gap-2 ps-2 mb-2 align-items-center">
                                         <ProfilePic small position={""} />
