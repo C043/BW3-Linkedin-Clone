@@ -19,7 +19,7 @@ const PostComponent = ({ id, userImage, username, text, date, image }) => {
     user && (
       <>
         <div className="d-flex gap-3 align-items-center">
-          <Image src={userImage} width={"50px"} height={"50px"} className="rounded-circle" />
+          <Image src={userImage} width={"50px"} height={"50px"} className="rounded-circle object-fit-cover" />
           <div className="flex-column">
             <p className="h5 m-0">{username}</p>
             <p className="m-0">
