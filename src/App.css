@@ -15,12 +15,12 @@ body {
     right: 10px;
   }
 
-  .main-button {
+  .search-input {
     width: 100px;
     transition: width 0.5s;
 
     &:focus {
-      width: 300px;
+      width: 150px;
       transition: width 0.5s;
     }
   }
@@ -37,7 +37,7 @@ body {
   border: 1px dashed;
 }
 
-.home-footer {
+.sticky-under-nav {
   position: sticky;
   top: 70px;
 }

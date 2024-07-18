@@ -2,7 +2,7 @@ import { Image } from "react-bootstrap";
 
 const HomeFooter = () => {
   return (
-    <div className="home-footer">
+    <div className="sticky-under-nav">
       <div className="d-flex justify-content-center flex-wrap gap-2">
         <a type="button" className="text-secondary fw-light link-underline link-underline-opacity-0 fs-6">
           Informazioni

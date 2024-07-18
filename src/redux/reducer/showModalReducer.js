@@ -5,6 +5,8 @@ import {
   SHOW_DEL_EXP_ON,
   SHOW_EDIT_EXPERIENCE_OFF,
   SHOW_EDIT_EXPERIENCE_ON,
+  SHOW_EDIT_POST_OFF,
+  SHOW_EDIT_POST_ON,
   SHOW_EDIT_PROFILE_PIC_OFF,
   SHOW_EDIT_PROFILE_PIC_ON,
   SHOW_EXPERIENCE_OFF,
@@ -17,6 +19,7 @@ const initialState = {
   delExp: false,
   editPic: false,
   addPost: false,
+  editPost: false
 };
 
 const showModalReducer = (state = initialState, action) => {
@@ -70,6 +73,16 @@ const showModalReducer = (state = initialState, action) => {
       return {
         ...state,
         addPost: action.payload,
+      };
+    case SHOW_EDIT_POST_ON:
+      return {
+        ...state,
+        editPost: action.payload,
+      };
+    case SHOW_EDIT_POST_OFF:
+      return {
+        ...state,
+        editPost: action.payload,
       };
 
     default:

@@ -9,15 +9,11 @@ import { userId } from "../../userId";
 const ProfilePic = ({ small, position }) => {
   const profile = useSelector(state => state.profile.content);
 
-  /* const [show, setShow] = useState(false); */
   const [showMod, setShowMod] = useState(false);
   const [file, setFile] = useState(null);
 
   const dispatch = useDispatch();
   const show = useSelector(state => state.show.editPic);
-
-  /*   const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true); */
 
   const handleClose = () => dispatch(showPicOffAction());
   const handleShow = () => dispatch(showPicOnAction());
@@ -89,7 +85,6 @@ const ProfilePic = ({ small, position }) => {
                 </Button>
               </div>
             </Form.Group>
-
             <Modal.Footer className="p-0 ps-3">
               <div className="d-flex gap-3 me-auto my-0 ">
                 <Button
