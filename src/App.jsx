@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getUserAction } from "./redux/actions";
+import JobsPage from "./components/JobsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,8 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="me" element={<ProfilePage />} />
+          <Route path="/me" element={<ProfilePage />} />
+          <Route path="/jobs" element={<JobsPage />} />
         </Routes>
       </Container>
     </BrowserRouter>

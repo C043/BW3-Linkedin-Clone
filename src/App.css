@@ -37,7 +37,7 @@ body {
   border: 1px dashed;
 }
 
-.home-footer {
+.sticky-under-nav {
   position: sticky;
   top: 70px;
 }
