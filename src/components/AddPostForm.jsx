@@ -32,14 +32,15 @@ const AddPostForm = () => {
       });
       if (resp.ok) {
         const data = await resp.json();
-        addImage(data._id);
+        if (image) {
+          addImage(data._id);
+        }
         alert("Post effettuato correttamente");
         dispatch(getPostsAction());
         setImage("");
         setFile(null);
         handleClose();
       } else {
-        console.log(resp);
         throw new Error("Errore nel post");
       }
     } catch (error) {

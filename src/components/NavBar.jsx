@@ -1,6 +1,6 @@
-import { Col, Container, Form, FormLabel, Image, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
+import { Col, Container, Dropdown, Form, FormLabel, Image, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
 import logo from "../assets/LinkedIn_logo_initials.png.webp";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import ProfilePic from "./ProfilePic";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
@@ -8,6 +8,7 @@ import { getJobsAction } from "../redux/actions";
 
 const NavBar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const profile = useSelector(state => state.profile.content);
   const user = useSelector(state => state.profile.content);
@@ -18,6 +19,7 @@ const NavBar = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    navigate("/jobs");
     dispatch(getJobsAction(query));
     setQuery("");
   };
@@ -64,18 +66,33 @@ const NavBar = () => {
                     location.pathname === "/" ? "pb-3 border-2 border-black border-bottom text-dark" : "text-dark"
                   }
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    data-supported-dps="24x24"
-                    fill={location.pathname === "/" ? "black" : "currentColor"}
-                    className="mercado-match"
-                    width="24"
-                    height="24"
-                    focusable="false"
-                  >
-                    <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
-                  </svg>
+                  {location.pathname === "/" ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      data-supported-dps="24x24"
+                      fill="dark"
+                      class="mercado-match"
+                      width="24"
+                      height="24"
+                      focusable="false"
+                    >
+                      <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      data-supported-dps="24x24"
+                      fill={"currentColor"}
+                      className="mercado-match"
+                      width="24"
+                      height="24"
+                      focusable="false"
+                    >
+                      <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
+                    </svg>
+                  )}
                 </NavLink>
               </Col>
               <Col>
@@ -102,18 +119,33 @@ const NavBar = () => {
                     location.pathname === "/jobs" ? "pb-3 border-2 border-black border-bottom text-dark" : "text-dark"
                   }
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    data-supported-dps="24x24"
-                    className="mercado-match"
-                    fill={location.pathname === "/jobs" ? "dark" : "currentColor"}
-                    width="24"
-                    height="24"
-                    focusable="false"
-                  >
-                    <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"></path>
-                  </svg>
+                  {location.pathname === "/jobs" ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      data-supported-dps="24x24"
+                      fill="dark"
+                      class="mercado-match"
+                      width="24"
+                      height="24"
+                      focusable="false"
+                    >
+                      <path d="M22.84 10.22L21 6h-3.95V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2l2.22 5.18A3 3 0 007 13h14a2 2 0 001.84-2.78zM15.05 6h-6V5a1 1 0 011-1h4a1 1 0 011 1zM7 14h15v3a3 3 0 01-3 3H5a3 3 0 01-3-3V8.54l1.3 3A4 4 0 007 14z"></path>
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      data-supported-dps="24x24"
+                      className="mercado-match"
+                      fill={"currentColor"}
+                      width="24"
+                      height="24"
+                      focusable="false"
+                    >
+                      <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"></path>
+                    </svg>
+                  )}
                 </NavLink>
               </Col>
               <Col>
@@ -152,7 +184,8 @@ const NavBar = () => {
                 <NavDropdown
                   title={<Image src={profile.image} alt="DP" width={30} className="rounded-circle" />}
                   id="basic-nav-dropdown"
-                  className="dropstart"
+                  drop="down"
+                  align={"end"}
                 >
                   <div className="d-flex gap-2 ps-2 mb-2 align-items-center">
                     <ProfilePic small position={""} />

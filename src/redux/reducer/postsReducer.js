@@ -1,4 +1,10 @@
-import { GET_POSTS, HAS_POST_ERROR_OFF, HAS_POST_ERROR_ON, IS_LOADING_OFF, IS_LOADING_ON } from "../actions";
+import {
+  GET_POSTS,
+  HAS_POST_ERROR_OFF,
+  HAS_POST_ERROR_ON,
+  IS_POSTS_LOADING_OFF,
+  IS_POSTS_LOADING_ON,
+} from "../actions";
 
 const initialState = {
   content: [],
@@ -13,12 +19,12 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         content: action.payload,
       };
-    case IS_LOADING_ON:
+    case IS_POSTS_LOADING_ON:
       return {
         ...state,
         isLoading: action.payload,
       };
-    case IS_LOADING_OFF:
+    case IS_POSTS_LOADING_OFF:
       return {
         ...state,
         isLoading: action.payload,

@@ -33,8 +33,7 @@ const ProfilePic = ({ small, position, edit }) => {
       });
 
       if (response.ok) {
-        const result = await response.json();
-        alert("Image uploaded successfully", result);
+        alert("Immagine modificata con successo");
         dispatch(getUserAction());
         dispatch(showPicOffAction());
       } else {
@@ -121,7 +120,7 @@ const ProfilePic = ({ small, position, edit }) => {
           width={small ? "70px" : "120px"}
           height={small ? "70px" : "120px"}
           onClick={edit && handleShow}
-          style={{ cursor: "pointer", backgroundColor: 'lightgray' }}
+          style={{ cursor: "pointer", backgroundColor: "lightgray" }}
         />
       </>
     )

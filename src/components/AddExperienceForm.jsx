@@ -41,7 +41,9 @@ const AddExperienceForm = () => {
       });
       if (resp.ok) {
         const data = await resp.json();
-        addImage(data._id);
+        if (image) {
+          addImage(data._id);
+        }
         dispatch(getExperiencesAction());
         setImage("");
         setFile(null);

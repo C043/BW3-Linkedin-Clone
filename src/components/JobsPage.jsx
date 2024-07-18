@@ -13,11 +13,6 @@ const JobsPage = () => {
   const jobs = useSelector(state => state.jobs.content);
   const isLoading = useSelector(state => state.jobs.isLoading);
   const hasError = useSelector(state => state.jobs.hasError);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getJobsAction());
-  }, []);
 
   return (
     <Row>
@@ -35,6 +30,7 @@ const JobsPage = () => {
         </div>
       </Col>
       <Col xs="12" md="8" lg="5" xl="6">
+        <h1 className="mt-3">Jobs</h1>
         {isLoading && (
           <div className="d-flex justify-content-center mt-5">
             <Spinner variant="primary" />
