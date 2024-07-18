@@ -5,48 +5,48 @@ const FooterComponent = () => {
   return (
     <Row className="my-3">
       <Col xs="6" md="2">
-        <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+        <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
           Informazioni
         </a>
-        <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover " href="">
+        <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover " href="">
           Linee guida della community
         </a>
-        <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+        <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
           Privacy e condizioni
         </a>
-        <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+        <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
           Sales Solutions
         </a>
-        <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+        <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
           Centro sicurezza
         </a>
       </Col>
       <Col xs="6" md="2">
-        <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+        <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
           Accessibilità
         </a>
-        <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+        <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
           Carriera
         </a>
-        <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+        <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
           Opzioni per gli annunci pubblicitari
         </a>
-        <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+        <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
           Mobile
         </a>
       </Col>
       <Col xs="6" md="2">
         <div className="flex-column">
-          <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+          <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
             Talent Solutions
           </a>
-          <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+          <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
             Soluzioni di marketing
           </a>
-          <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">
+          <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover" href="">
             Pubblicità
           </a>
-          <a className="d-block text-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover mb-2" href="">
+          <a className="d-block text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover mb-2" href="">
             Piccole imprese
           </a>
         </div>
