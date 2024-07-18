@@ -3,9 +3,7 @@ import ContentBox from "./ContentBox";
 import JobSideBar from "./JobSideBar";
 import { PencilSquare } from "react-bootstrap-icons";
 import HomeFooter from "./HomeFooter";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getJobsAction } from "../redux/actions";
+import { useSelector } from "react-redux";
 import JobComponent from "./JobComponent";
 import ErrorComponent from "./ErrorComponent";
 
