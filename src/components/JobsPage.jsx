@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getJobsAction } from "../redux/actions";
 import JobComponent from "./JobComponent";
+import ErrorComponent from "./ErrorComponent";
 
 const JobsPage = () => {
   const jobs = useSelector(state => state.jobs.content);
   const isLoading = useSelector(state => state.jobs.isLoading);
   const hasError = useSelector(state => state.jobs.hasError);
-  const noResults = useSelector(state => state.posts.noResults);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -59,11 +59,12 @@ const JobsPage = () => {
                 noHeader
               />
             ))}
-        {jobs.length === 0 && isLoading === false && (
+        {jobs.length === 0 && isLoading === false && hasError === false && (
           <Alert variant="info" className="mt-3">
             Nessun risultato
           </Alert>
         )}
+        {hasError && <ErrorComponent />}
       </Col>
       <Col xs="12" lg="4" xl="3" className="d-none d-lg-block">
         <HomeFooter />

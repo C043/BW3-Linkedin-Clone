@@ -1,4 +1,4 @@
-import { GET_JOBS, HAS_ERROR_OFF, HAS_ERROR_ON, IS_LOADING_OFF, IS_LOADING_ON } from "../actions";
+import { GET_JOBS, HAS_JOB_ERROR_OFF, HAS_JOB_ERROR_ON, IS_LOADING_OFF, IS_LOADING_ON } from "../actions";
 
 const initialState = {
   content: [],
@@ -23,12 +23,12 @@ const jobReducer = (state = initialState, action) => {
         ...state,
         isLoading: action.payload,
       };
-    case HAS_ERROR_ON:
+    case HAS_JOB_ERROR_ON:
       return {
         ...state,
         hasError: action.payload,
       };
-    case HAS_ERROR_OFF:
+    case HAS_JOB_ERROR_OFF:
       return {
         ...state,
         hasError: action.payload,

@@ -51,7 +51,7 @@ const HomePage = () => {
             posts &&
             posts
               .toReversed()
-              .slice(0, 100)
+              .slice(0, 10)
               .map(post => (
                 <ContentBox
                   key={post._id}

@@ -24,12 +24,17 @@ export const IS_LOADING_ON = "IS_LOADING_ON";
 export const IS_LOADING_OFF = "IS_LOADING_OFF";
 export const HAS_ERROR_ON = "HAS_ERROR_ON";
 export const HAS_ERROR_OFF = "HAS_ERROR_OFF";
+export const HAS_JOB_ERROR_ON = "HAS_JOB_ERROR_ON";
+export const HAS_JOB_ERROR_OFF = "HAS_JOB_ERROR_OFF";
 
 export const isLoadingOnAction = () => ({ type: IS_LOADING_ON, payload: true });
 export const isLoadingOffAction = () => ({ type: IS_LOADING_OFF, payload: false });
 
 export const hasErrorOnAction = () => ({ type: HAS_ERROR_ON, payload: true });
 export const hasErrorOffAction = () => ({ type: HAS_ERROR_OFF, payload: false });
+
+export const hasJobErrorOnAction = () => ({ type: HAS_JOB_ERROR_ON, payload: true });
+export const hasJobErrorOffAction = () => ({ type: HAS_JOB_ERROR_OFF, payload: false });
 
 export const getUserAction = () => {
   return async dispatch => {
@@ -121,7 +126,7 @@ export const getPostsAction = () => {
 export const getJobsAction = (query = "", company = "", category = "") => {
   return async dispatch => {
     dispatch(isLoadingOnAction());
-    dispatch(hasErrorOffAction());
+    dispatch(hasJobErrorOffAction());
 
     try {
       let url = "https://strive-benchmark.herokuapp.com/api/jobs";
@@ -145,7 +150,7 @@ export const getJobsAction = (query = "", company = "", category = "") => {
       }
     } catch (error) {
       console.log(error);
-      dispatch(hasErrorOnAction());
+      dispatch(hasJobErrorOnAction());
     } finally {
       dispatch(isLoadingOffAction());
     }
