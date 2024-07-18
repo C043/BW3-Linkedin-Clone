@@ -121,7 +121,7 @@ const ProfilePic = ({ small, position, edit }) => {
           width={small ? "70px" : "120px"}
           height={small ? "70px" : "120px"}
           onClick={edit && handleShow}
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", backgroundColor: 'lightgray' }}
         />
       </>
     )
