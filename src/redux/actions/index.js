@@ -6,7 +6,8 @@ export const GET_USERS_LIST = "GET_USERS_LIST";
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
 export const GET_POSTS = "GET_POSTS";
 export const GET_JOBS = "GET_JOBS";
-export const GET_COMMENTS = "GET_COMMENTS"
+export const GET_COMMENTS = "GET_COMMENTS";
+
 export const SHOW_EXPERIENCE_ON = "SHOW_EXPERIENCE_ON";
 export const SHOW_EXPERIENCE_OFF = "SHOW_EXPERIENCE_OFF";
 export const SHOW_EDIT_EXPERIENCE_ON = "SHOW_EDIT_EXPERIENCE_ON";
@@ -21,17 +22,24 @@ export const SHOW_EDIT_POST_ON = "SHOW_EDIT_POST_ON";
 export const SHOW_EDIT_POST_OFF = "SHOW_EDIT_POST_OFF";
 export const SHOW_COMPANY_DES_ON = "SHOW_COMPANY_DES_ON";
 export const SHOW_COMPANY_DES_OFF = "SHOW_COMPANY_DES_OFF";
+
 export const SELECT_EXP = "SELECT_EXP";
 export const SELECT_POST = "SELECT_POST";
 export const SELECT_JOB = "SELECT_JOB";
 export const SELECT_JOB_DES = "SELECT_JOB_DES";
 export const SELECT_JOB_HEADER = "SELECT_JOB_HEADER";
+
 export const IS_LOADING_ON = "IS_LOADING_ON";
 export const IS_LOADING_OFF = "IS_LOADING_OFF";
 export const IS_POSTS_LOADING_ON = "IS_POSTS_LOADING_ON";
 export const IS_POSTS_LOADING_OFF = "IS_POSTS_LOADING_OFF";
 export const IS_JOBS_LOADING_ON = "IS_JOBS_LOADING_ON";
 export const IS_JOBS_LOADING_OFF = "IS_JOBS_LOADING_OFF";
+export const IS_COMMENTS_LOADING_ON = "IS_COMMENTS_LOADING_ON";
+export const IS_COMMENTS_LOADING_OFF = "IS_COMMENTS_LOADING_OFF";
+
+export const HAS_COMMENTS_ERROR_ON = "HAS_COMMENTS_ERROR_ON";
+export const HAS_COMMENTS_ERROR_OFF = "HAS_COMMENTS_ERROR_OFF";
 export const HAS_ERROR_ON = "HAS_ERROR_ON";
 export const HAS_ERROR_OFF = "HAS_ERROR_OFF";
 export const HAS_JOB_ERROR_ON = "HAS_JOB_ERROR_ON";
@@ -48,6 +56,9 @@ export const isPostsLoadingOffAction = () => ({ type: IS_POSTS_LOADING_OFF, payl
 export const isJobsLoadingOnAction = () => ({ type: IS_JOBS_LOADING_ON, payload: true });
 export const isJobsLoadingOffAction = () => ({ type: IS_JOBS_LOADING_OFF, payload: false });
 
+export const isCommentsLoadingOnAction = () => ({ type: IS_COMMENTS_LOADING_ON, payload: true });
+export const isCommentsLoadingOffAction = () => ({ type: IS_COMMENTS_LOADING_OFF, payload: false });
+
 export const hasErrorOnAction = () => ({ type: HAS_ERROR_ON, payload: true });
 export const hasErrorOffAction = () => ({ type: HAS_ERROR_OFF, payload: false });
 
@@ -56,6 +67,9 @@ export const hasJobErrorOffAction = () => ({ type: HAS_JOB_ERROR_OFF, payload: f
 
 export const hasPostErrorOnAction = () => ({ type: HAS_POST_ERROR_ON, payload: true });
 export const hasPostErrorOffAction = () => ({ type: HAS_POST_ERROR_OFF, payload: false });
+
+export const hasCommentsErrorOnAction = () => ({ type: HAS_COMMENTS_ERROR_ON, payload: true });
+export const hasCommentsErrorOffAction = () => ({ type: HAS_COMMENTS_ERROR_OFF, payload: false });
 
 export const getUserAction = () => {
   return async dispatch => {
@@ -178,13 +192,14 @@ export const getJobsAction = (query = "", company = "", category = "") => {
 };
 
 export const getCommentsAction = () => {
-  return async (dispatch) => {
+  return async dispatch => {
+    dispatch(isCommentsLoadingOnAction());
+    dispatch(hasCommentsErrorOffAction());
     try {
-
       const resp = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
         method: "GET",
         headers: {
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjlhMTJmMjhmMDYyYTAwMTVlZTc1YmYiLCJpYXQiOjE3MjEzNzM0MjYsImV4cCI6MTcyMjU4MzAyNn0.FZQUQAHLDIc1JTRKVR4OtOCW_f4yFeXw9tFDFVqRIbc'
+          Authorization: token,
         },
       });
 
@@ -196,9 +211,12 @@ export const getCommentsAction = () => {
       }
     } catch (error) {
       console.log(error);
+      dispatch(hasCommentsErrorOnAction());
+    } finally {
+      dispatch(isCommentsLoadingOffAction());
     }
-  }
-}
+  };
+};
 
 export const showExperienceOnAction = () => ({ type: SHOW_EXPERIENCE_ON, payload: true });
 export const showExperienceOffAction = () => ({ type: SHOW_EXPERIENCE_OFF, payload: false });

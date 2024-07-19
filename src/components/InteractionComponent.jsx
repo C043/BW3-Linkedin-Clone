@@ -1,6 +1,6 @@
 import { ArrowLeftRight, ChatDots, HandThumbsUp, SendFill } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
-import { selectPostAction } from "../redux/actions";
+import { getCommentsAction, selectPostAction } from "../redux/actions";
 
 const InteractionComponent = ({ id, showComment }) => {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const InteractionComponent = ({ id, showComment }) => {
         onClick={() => {
           dispatch(selectPostAction(id));
           showComment(true);
+          dispatch(getCommentsAction());
         }}
       >
         <ChatDots />

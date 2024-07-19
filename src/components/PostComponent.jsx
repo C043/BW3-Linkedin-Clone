@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { Image } from "react-bootstrap";
+import { Alert, Image, Spinner } from "react-bootstrap";
 import { GlobeAmericas, Pencil } from "react-bootstrap-icons";
 import InteractionComponent from "./InteractionComponent";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,9 +8,14 @@ import { getCommentsAction, selectPostAction, showEditPostOnAction } from "../re
 import AddCommentComponent from "./AddCommentComponent";
 import CommentsComponent from "./CommentsComponent";
 import { useEffect, useState } from "react";
+import ErrorComponent from "./ErrorComponent";
 
 const PostComponent = ({ id, userImage, username, text, date, image }) => {
   const [showComment, setShowComment] = useState(false);
+
+  const isLoading = useSelector(state => state.comments.isLoading);
+
+  const hasError = useSelector(state => state.comments.hasError);
 
   const user = useSelector(state => state.profile.content);
   const comments = useSelector(state => state.comments.content);
@@ -21,10 +26,6 @@ const PostComponent = ({ id, userImage, username, text, date, image }) => {
     dispatch(selectPostAction(id));
     dispatch(showEditPostOnAction());
   };
-
-  useEffect(() => {
-    dispatch(getCommentsAction());
-  }, []);
 
   useEffect(() => {
     if (selectedPost !== id) {
@@ -52,6 +53,15 @@ const PostComponent = ({ id, userImage, username, text, date, image }) => {
         {showComment && (
           <>
             <AddCommentComponent />
+            {isLoading && (
+              <div className="d-flex justify-content-center py-3">
+                <Spinner variant="primary" />
+              </div>
+            )}
+            {comments.filter(comment => comment.elementId === id).length === 0 && hasError === false && (
+              <Alert variant="info">Non ci sono ancora commenti.</Alert>
+            )}
+            {hasError && <ErrorComponent />}
             {comments
               .filter(comment => comment.elementId === id)
               .toReversed()

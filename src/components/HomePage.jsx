@@ -36,7 +36,7 @@ const HomePage = () => {
             <div className="d-flex justify-content-center mt-5">
               <Spinner variant="primary" />
             </div>
-          )}{" "}
+          )}
           {hasProfileError === false && (
             <>
               <Hero />

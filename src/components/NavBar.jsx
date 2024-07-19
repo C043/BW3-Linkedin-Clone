@@ -4,7 +4,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import ProfilePic from "./ProfilePic";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { getJobsAction, getPostsAction, selectedJobHeaderAction } from "../redux/actions";
+import { getJobsAction, getPostsAction, selectedJobHeaderAction, selectPostAction } from "../redux/actions";
 
 const NavBar = () => {
   const location = useLocation();
@@ -65,7 +65,10 @@ const NavBar = () => {
                   className={
                     location.pathname === "/" ? "pb-3 border-2 border-black border-bottom text-dark" : "text-dark"
                   }
-                  onClick={() => dispatch(getPostsAction())}
+                  onClick={() => {
+                    dispatch(getPostsAction());
+                    dispatch(selectPostAction(""));
+                  }}
                 >
                   {location.pathname === "/" ? (
                     <svg
