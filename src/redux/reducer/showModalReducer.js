@@ -1,6 +1,8 @@
 import {
   SHOW_ADD_POST_OFF,
   SHOW_ADD_POST_ON,
+  SHOW_COMPANY_DES_OFF,
+  SHOW_COMPANY_DES_ON,
   SHOW_DEL_EXP_OFF,
   SHOW_DEL_EXP_ON,
   SHOW_EDIT_EXPERIENCE_OFF,
@@ -19,7 +21,8 @@ const initialState = {
   delExp: false,
   editPic: false,
   addPost: false,
-  editPost: false
+  editPost: false,
+  companyDes: false,
 };
 
 const showModalReducer = (state = initialState, action) => {
@@ -83,6 +86,16 @@ const showModalReducer = (state = initialState, action) => {
       return {
         ...state,
         editPost: action.payload,
+      };
+    case SHOW_COMPANY_DES_ON:
+      return {
+        ...state,
+        companyDes: action.payload,
+      };
+    case SHOW_COMPANY_DES_OFF:
+      return {
+        ...state,
+        companyDes: action.payload,
       };
 
     default:

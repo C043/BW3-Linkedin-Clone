@@ -1,8 +1,20 @@
 import { useDispatch } from "react-redux";
-import { getJobsAction, selectedJobHeaderAction } from "../redux/actions";
+import {
+  getJobsAction,
+  selectedJobHeaderAction,
+  selectJobAction,
+  selectJobDesAction,
+  showCompanyDestOnAction,
+} from "../redux/actions";
 
-const JobComponent = ({ url, title, company, category, date }) => {
+const JobComponent = ({ title, company, category, date, description }) => {
   const dispatch = useDispatch();
+
+  const handleOpen = () => {
+    dispatch(showCompanyDestOnAction());
+    dispatch(selectJobAction(title));
+    dispatch(selectJobDesAction(description));
+  };
 
   const getCompanyJobs = () => {
     dispatch(getJobsAction(null, company, null));
@@ -16,9 +28,9 @@ const JobComponent = ({ url, title, company, category, date }) => {
 
   return (
     <div className="d-flex flex-column my-4">
-      <a href={url} className="h4 link-underline link-underline-opacity-0">
+      <h3 type="button" className="h4 link-underline link-underline-opacity-0" onClick={handleOpen}>
         {title}
-      </a>
+      </h3>
       <p className="m-0">{date}</p>
       <a type="button" className="h6 link-underline link-underline-opacity-0" onClick={getCompanyJobs}>
         <span className="text-secondary">Company:</span> {company}

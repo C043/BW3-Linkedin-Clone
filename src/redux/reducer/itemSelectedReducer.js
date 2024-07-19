@@ -1,9 +1,11 @@
-import { SELECT_EXP, SELECT_JOB_HEADER, SELECT_POST } from "../actions";
+import { SELECT_EXP, SELECT_JOB, SELECT_JOB_DES, SELECT_JOB_HEADER, SELECT_POST } from "../actions";
 
 const initialState = {
   selectedExp: "",
   selectedPost: "",
   selectedJobHeader: "",
+  selectedJob: "",
+  selectedJobDes: "",
 };
 
 const itemSelectedReducer = (state = initialState, action) => {
@@ -22,6 +24,16 @@ const itemSelectedReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedJobHeader: action.payload,
+      };
+    case SELECT_JOB:
+      return {
+        ...state,
+        selectedJob: action.payload,
+      };
+    case SELECT_JOB_DES:
+      return {
+        ...state,
+        selectedJobDes: action.payload,
       };
     default:
       return state;

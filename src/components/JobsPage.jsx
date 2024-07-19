@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { getJobsAction, selectedJobHeaderAction } from "../redux/actions";
 import JobComponent from "./JobComponent";
 import ErrorComponent from "./ErrorComponent";
+import JobDescritpionModal from "./JobDescriptionModal";
 
 const JobsPage = () => {
   const jobHeader = useSelector(state => state.item.selectedJobHeader);
@@ -52,10 +53,10 @@ const JobsPage = () => {
                 key={job._id}
                 content={
                   <JobComponent
-                    url={job.url}
                     title={job.title}
                     company={job.company_name}
                     category={job.category}
+                    description={job.description}
                     date={job.publication_date.slice(0, 10)}
                   />
                 }
@@ -72,6 +73,7 @@ const JobsPage = () => {
       <Col xs="12" lg="4" xl="3" className="d-none d-lg-block">
         <HomeFooter />
       </Col>
+      <JobDescritpionModal />
     </Row>
   );
 };
