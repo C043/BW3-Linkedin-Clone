@@ -7,6 +7,8 @@ export const GET_EXPERIENCES = "GET_EXPERIENCES";
 export const GET_POSTS = "GET_POSTS";
 export const GET_JOBS = "GET_JOBS";
 export const GET_COMMENTS = "GET_COMMENTS"
+
+
 export const SHOW_EXPERIENCE_ON = "SHOW_EXPERIENCE_ON";
 export const SHOW_EXPERIENCE_OFF = "SHOW_EXPERIENCE_OFF";
 export const SHOW_EDIT_EXPERIENCE_ON = "SHOW_EDIT_EXPERIENCE_ON";
@@ -21,17 +23,25 @@ export const SHOW_EDIT_POST_ON = "SHOW_EDIT_POST_ON";
 export const SHOW_EDIT_POST_OFF = "SHOW_EDIT_POST_OFF";
 export const SHOW_COMPANY_DES_ON = "SHOW_COMPANY_DES_ON";
 export const SHOW_COMPANY_DES_OFF = "SHOW_COMPANY_DES_OFF";
+export const SHOW_EDIT_COMMENT_ON = "SHOW_EDIT_COMMENT_ON";
+export const SHOW_EDIT_COMMENT_OFF = "SHOW_EDIT_COMMENT_OFF";
+
 export const SELECT_EXP = "SELECT_EXP";
 export const SELECT_POST = "SELECT_POST";
 export const SELECT_JOB = "SELECT_JOB";
 export const SELECT_JOB_DES = "SELECT_JOB_DES";
 export const SELECT_JOB_HEADER = "SELECT_JOB_HEADER";
+export const SELECT_COMMENT = "SELECT_COMMENT"
+
+
 export const IS_LOADING_ON = "IS_LOADING_ON";
 export const IS_LOADING_OFF = "IS_LOADING_OFF";
 export const IS_POSTS_LOADING_ON = "IS_POSTS_LOADING_ON";
 export const IS_POSTS_LOADING_OFF = "IS_POSTS_LOADING_OFF";
 export const IS_JOBS_LOADING_ON = "IS_JOBS_LOADING_ON";
 export const IS_JOBS_LOADING_OFF = "IS_JOBS_LOADING_OFF";
+
+
 export const HAS_ERROR_ON = "HAS_ERROR_ON";
 export const HAS_ERROR_OFF = "HAS_ERROR_OFF";
 export const HAS_JOB_ERROR_ON = "HAS_JOB_ERROR_ON";
@@ -184,7 +194,7 @@ export const getCommentsAction = () => {
       const resp = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
         method: "GET",
         headers: {
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjlhMTJmMjhmMDYyYTAwMTVlZTc1YmYiLCJpYXQiOjE3MjEzNzM0MjYsImV4cCI6MTcyMjU4MzAyNn0.FZQUQAHLDIc1JTRKVR4OtOCW_f4yFeXw9tFDFVqRIbc'
+          Authorization: token
         },
       });
 
@@ -221,6 +231,9 @@ export const showEditPostOffAction = () => ({ type: SHOW_EDIT_POST_OFF, payload:
 export const showCompanyDestOnAction = () => ({ type: SHOW_COMPANY_DES_ON, payload: true });
 export const showCompanyDestOffAction = () => ({ type: SHOW_COMPANY_DES_OFF, payload: false });
 
+export const showCommentModalOnAction = () => ({ type: SHOW_EDIT_COMMENT_ON, payload: true });
+export const showCommentModalOffAction = () => ({ type: SHOW_EDIT_COMMENT_OFF, payload: false });
+
 export const selectExpAction = id => ({ type: SELECT_EXP, payload: id });
 
 export const selectedJobHeaderAction = header => ({ type: SELECT_JOB_HEADER, payload: header });
@@ -230,3 +243,5 @@ export const selectPostAction = id => ({ type: SELECT_POST, payload: id });
 export const selectJobAction = job => ({ type: SELECT_JOB, payload: job });
 
 export const selectJobDesAction = jobDes => ({ type: SELECT_JOB_DES, payload: jobDes });
+
+export const selectCommentAction = commentObj => ({ type: SELECT_COMMENT, payload: commentObj })

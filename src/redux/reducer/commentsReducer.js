@@ -1,7 +1,8 @@
-import { GET_COMMENTS } from "../actions";
+import { GET_COMMENTS, SELECT_COMMENT } from "../actions";
 
 const initialState = {
-    content: []
+    content: [],
+    selectedComment: null
 }
 
 
@@ -14,6 +15,11 @@ const commentsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 content: action.payload
+            }
+        case SELECT_COMMENT:
+            return {
+                ...state,
+                selectedComment: action.payload
             }
 
         default:

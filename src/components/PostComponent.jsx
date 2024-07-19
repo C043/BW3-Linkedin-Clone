@@ -4,7 +4,7 @@ import { Image } from "react-bootstrap";
 import { GlobeAmericas, Pencil } from "react-bootstrap-icons";
 import InteractionComponent from "./InteractionComponent";
 import { useDispatch, useSelector } from "react-redux";
-import { getCommentsAction, selectPostAction, showEditPostOnAction } from "../redux/actions";
+import { selectPostAction, showEditPostOnAction } from "../redux/actions";
 import AddCommentComponent from "./AddCommentComponent";
 import CommentsComponent from "./CommentsComponent";
 import { useEffect, useState } from "react";
@@ -23,13 +23,10 @@ const PostComponent = ({ id, userImage, username, text, date, image }) => {
   };
 
   useEffect(() => {
-    dispatch(getCommentsAction());
-  }, []);
-
-  useEffect(() => {
     if (selectedPost !== id) {
       setShowComment(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPost]);
 
   return (
@@ -59,6 +56,7 @@ const PostComponent = ({ id, userImage, username, text, date, image }) => {
                 <CommentsComponent
                   key={comment._id}
                   comment={comment.comment}
+                  comId={comment._id}
                   author={comment.author}
                   date={comment.createdAt.slice(0, 10)}
                 />

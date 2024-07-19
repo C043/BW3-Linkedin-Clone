@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { ArrowRight } from "react-bootstrap-icons";
 
 const OtherInfo = ({ border }) => {

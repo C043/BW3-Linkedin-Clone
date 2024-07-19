@@ -1,6 +1,23 @@
+/* eslint-disable react/prop-types */
 import { Button, Image } from "react-bootstrap";
+import { ThreeDots } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
+import { selectCommentAction, showCommentModalOnAction } from "../redux/actions";
 
-const CommentsComponent = ({ comment, author, date }) => {
+const CommentsComponent = ({ comId, comment, author, date }) => {
+  const dispatch = useDispatch()
+
+  const currentComment = {
+    comId,
+    comment,
+    author
+  }
+
+  const handleClick = () => {
+    dispatch(showCommentModalOnAction())
+    dispatch(selectCommentAction(currentComment))
+  }
+
   return (
     <div className="d-flex gap-2">
       <Image
@@ -15,6 +32,8 @@ const CommentsComponent = ({ comment, author, date }) => {
           <div className="d-flex align-items-center gap-2">
             <h1 className="h6 m-0">{author}</h1>
             <p className="ms-auto mb-0">{date}</p>
+            <ThreeDots type="button" onClick={handleClick} />
+
           </div>
           <p style={{ fontSize: "15px" }} className="my-1 text-secondary">
             title
