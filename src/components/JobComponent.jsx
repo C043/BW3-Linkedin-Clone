@@ -1,15 +1,17 @@
 import { useDispatch } from "react-redux";
-import { getJobsAction } from "../redux/actions";
+import { getJobsAction, selectedJobHeaderAction } from "../redux/actions";
 
 const JobComponent = ({ url, title, company, category, date }) => {
   const dispatch = useDispatch();
 
   const getCompanyJobs = () => {
     dispatch(getJobsAction(null, company, null));
+    dispatch(selectedJobHeaderAction("Company: " + company));
   };
 
   const getCategoryJobs = () => {
     dispatch(getJobsAction(null, null, category));
+    dispatch(selectedJobHeaderAction("Category: " + category));
   };
 
   return (

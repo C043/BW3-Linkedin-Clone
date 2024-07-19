@@ -10,7 +10,6 @@ export const SHOW_EXPERIENCE_ON = "SHOW_EXPERIENCE_ON";
 export const SHOW_EXPERIENCE_OFF = "SHOW_EXPERIENCE_OFF";
 export const SHOW_EDIT_EXPERIENCE_ON = "SHOW_EDIT_EXPERIENCE_ON";
 export const SHOW_EDIT_EXPERIENCE_OFF = "SHOW_EDIT_EXPERIENCE_OFF";
-export const SELECT_EXP = "SELECT_EXP";
 export const SHOW_DEL_EXP_ON = "SHOW_DEL_EXP_ON";
 export const SHOW_DEL_EXP_OFF = "SHOW_DEL_EXP_OFF";
 export const SHOW_EDIT_PROFILE_PIC_ON = "SHOW_EDIT_PROFILE_PIC_ON";
@@ -19,7 +18,9 @@ export const SHOW_ADD_POST_ON = "SHOW_ADD_POST_ON";
 export const SHOW_ADD_POST_OFF = "SHOW_ADD_POST_OFF";
 export const SHOW_EDIT_POST_ON = "SHOW_EDIT_POST_ON";
 export const SHOW_EDIT_POST_OFF = "SHOW_EDIT_POST_OFF";
+export const SELECT_EXP = "SELECT_EXP";
 export const SELECT_POST = "SELECT_POST";
+export const SELECT_JOB_HEADER = "SELECT_JOB_HEADER";
 export const IS_LOADING_ON = "IS_LOADING_ON";
 export const IS_LOADING_OFF = "IS_LOADING_OFF";
 export const IS_POSTS_LOADING_ON = "IS_POSTS_LOADING_ON";
@@ -90,7 +91,6 @@ export const getUsersListAction = () => {
       }
     } catch (error) {
       console.log(error);
-    } finally {
     }
   };
 };
@@ -179,6 +179,8 @@ export const showEditExpOnAction = () => ({ type: SHOW_EDIT_EXPERIENCE_ON, paylo
 export const showEditExpOffAction = () => ({ type: SHOW_EDIT_EXPERIENCE_OFF, payload: false });
 
 export const selectExpAction = id => ({ type: SELECT_EXP, payload: id });
+
+export const selectedJobHeaderAction = header => ({ type: SELECT_JOB_HEADER, payload: header });
 
 export const selectPostAction = id => ({ type: SELECT_POST, payload: id });
 
