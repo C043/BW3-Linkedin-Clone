@@ -38,10 +38,10 @@ const HomePage = () => {
             </div>
           )}
           {hasProfileError === false && (
-            <>
+            <div className="sticky-under-nav">
               <Hero />
               <ContentBox content={<HomeInsight />} noHeader />
-            </>
+            </div>
           )}
           {hasProfileError && <ErrorComponent />}
         </Col>

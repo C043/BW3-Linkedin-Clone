@@ -57,7 +57,7 @@ const ProfilePic = ({ small, position, edit }) => {
               <Modal.Title>Foto profilo</Modal.Title>
             </Modal.Header>
             <Image
-              className="d-block mx-auto mb-3 rounded-circle"
+              className="d-block mx-auto mb-3 rounded-circle object-fit-cover"
               src={profile.image}
               width={"275px"}
               height={"275px"}
