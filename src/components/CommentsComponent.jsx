@@ -5,18 +5,18 @@ import { useDispatch } from "react-redux";
 import { selectCommentAction, showCommentModalOnAction } from "../redux/actions";
 
 const CommentsComponent = ({ comId, comment, author, date }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const currentComment = {
     comId,
     comment,
-    author
-  }
+    author,
+  };
 
   const handleClick = () => {
-    dispatch(showCommentModalOnAction())
-    dispatch(selectCommentAction(currentComment))
-  }
+    dispatch(showCommentModalOnAction());
+    dispatch(selectCommentAction(currentComment));
+  };
 
   return (
     <div className="d-flex gap-2">
@@ -33,11 +33,7 @@ const CommentsComponent = ({ comId, comment, author, date }) => {
             <h1 className="h6 m-0">{author}</h1>
             <p className="ms-auto mb-0">{date}</p>
             <ThreeDots type="button" onClick={handleClick} />
-
           </div>
-          <p style={{ fontSize: "15px" }} className="my-1 text-secondary">
-            title
-          </p>
           <p>{comment}</p>
         </div>
         <div className="d-flex  my-2">
