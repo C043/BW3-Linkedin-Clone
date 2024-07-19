@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 
 token.js
+commentToken.js
 userId.js

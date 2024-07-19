@@ -11,6 +11,7 @@ import PostComponent from "./PostComponent";
 import AddPostComponent from "./AddPostComponent";
 import EditPostModal from "./EditPostModal";
 import ErrorComponent from "./ErrorComponent";
+import AddCommentComponent from "./AddCommentComponent";
 
 const HomePage = () => {
   const posts = useSelector(state => state.posts.content);
@@ -44,6 +45,7 @@ const HomePage = () => {
           {hasProfileError && <ErrorComponent />}
         </Col>
         <Col xs="12" md="8" lg="5" xl="6">
+          <ContentBox content={<AddCommentComponent />} />
           <ContentBox content={<AddPostComponent />} noHeader />
           {isPostsLoading && (
             <div className="d-flex justify-content-center mt-5">

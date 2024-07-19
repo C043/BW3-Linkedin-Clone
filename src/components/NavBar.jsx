@@ -1,4 +1,4 @@
-import { Col, Container, Dropdown, Form, FormLabel, Image, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
+import { Col, Container, Form, FormLabel, Image, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
 import logo from "../assets/LinkedIn_logo_initials.png.webp";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import ProfilePic from "./ProfilePic";
