@@ -123,8 +123,8 @@ const ProfilePic = ({ small, position, edit }) => {
               ? `rounded-circle flex-shrink-0 object-fit-cover border border-white border-3 ${position}`
               : `rounded-circle flex-shrink-0 object-fit-cover border border-white border-5 ${position}`
           }
-          width={small ? "70px" : "152px"}
-          height={small ? "70px" : "152px"}
+          width={small ? "60px" : "152px"}
+          height={small ? "60px" : "152px"}
           onClick={edit ? handleShow : handleNavigate}
           style={{ cursor: "pointer", backgroundColor: "lightgray" }}
         />
