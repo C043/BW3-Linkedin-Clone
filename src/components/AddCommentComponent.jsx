@@ -3,6 +3,7 @@ import ProfilePic from "./ProfilePic";
 import { useState } from "react";
 import { token } from "../../token";
 import { useDispatch, useSelector } from "react-redux";
+import { getCommentsAction } from "../redux/actions";
 
 const AddCommentComponent = () => {
   const dispatch = useDispatch();
@@ -24,8 +25,7 @@ const AddCommentComponent = () => {
         body: JSON.stringify(commentObj),
       });
       if (resp.ok) {
-        // aggiungere refresh commenti
-        alert("Post effettuato");
+        dispatch(getCommentsAction());
       } else {
         throw new Error("Errore nel post");
       }
@@ -37,6 +37,7 @@ const AddCommentComponent = () => {
   const handleSubmit = e => {
     e.preventDefault();
     postComment();
+    setComment("");
   };
 
   return (

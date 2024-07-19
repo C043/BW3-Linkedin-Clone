@@ -4,15 +4,16 @@ import { Image } from "react-bootstrap";
 import { GlobeAmericas, Pencil } from "react-bootstrap-icons";
 import InteractionComponent from "./InteractionComponent";
 import { useDispatch, useSelector } from "react-redux";
-import { selectPostAction, showEditPostOnAction } from "../redux/actions";
-import CommentsComponent from "./CommentsComponent";
+import { getCommentsAction, selectPostAction, showEditPostOnAction } from "../redux/actions";
 import AddCommentComponent from "./AddCommentComponent";
+import CommentsComponent from "./CommentsComponent";
 import { useEffect, useState } from "react";
 
 const PostComponent = ({ id, userImage, username, text, date, image }) => {
   const [showComment, setShowComment] = useState(false);
 
   const user = useSelector(state => state.profile.content);
+  const comments = useSelector(state => state.comments.content);
   const dispatch = useDispatch();
   const selectedPost = useSelector(state => state.item.selectedPost);
 
@@ -20,6 +21,10 @@ const PostComponent = ({ id, userImage, username, text, date, image }) => {
     dispatch(selectPostAction(id));
     dispatch(showEditPostOnAction());
   };
+
+  useEffect(() => {
+    dispatch(getCommentsAction());
+  }, []);
 
   useEffect(() => {
     if (selectedPost !== id) {
@@ -44,7 +49,22 @@ const PostComponent = ({ id, userImage, username, text, date, image }) => {
         <p className="my-2 break">{text}</p>
         {image && <Image src={image} alt="post-image" className="image-fluid" width={"100%"} />}
         <InteractionComponent id={id} showComment={() => setShowComment(!showComment)} />
-        {showComment && <AddCommentComponent />}
+        {showComment && (
+          <>
+            <AddCommentComponent />
+            {comments
+              .filter(comment => comment.elementId === id)
+              .toReversed()
+              .map(comment => (
+                <CommentsComponent
+                  key={comment._id}
+                  comment={comment.comment}
+                  author={comment.author}
+                  date={comment.createdAt.slice(0, 10)}
+                />
+              ))}
+          </>
+        )}
       </>
     )
   );

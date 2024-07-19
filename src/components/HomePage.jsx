@@ -26,7 +26,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getPostsAction());
-    dispatch(getCommentsAction())
+    dispatch(getCommentsAction());
   }, []);
   return (
     <>
@@ -46,7 +46,6 @@ const HomePage = () => {
           {hasProfileError && <ErrorComponent />}
         </Col>
         <Col xs="12" md="8" lg="5" xl="6">
-          <ContentBox content={<AddCommentComponent />} />
           <ContentBox content={<AddPostComponent />} noHeader />
           {isPostsLoading && (
             <div className="d-flex justify-content-center mt-5">
