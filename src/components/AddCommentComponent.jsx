@@ -1,14 +1,49 @@
 import { Button, Form } from "react-bootstrap";
 import ProfilePic from "./ProfilePic";
 import { useState } from "react";
+import { token } from "../../token";
+import { useDispatch, useSelector } from "react-redux";
 
 const AddCommentComponent = () => {
+  const dispatch = useDispatch();
   const [comment, setComment] = useState("");
+
+  const id = useSelector(state => state.item.selectedPost);
+
+  const commentObj = {
+    comment,
+    rate: 5,
+    elementId: id,
+  };
+
+  const postComment = async () => {
+    try {
+      const resp = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
+        method: "POST",
+        headers: { Authorization: token, "Content-Type": "application/json" },
+        body: JSON.stringify(commentObj),
+      });
+      if (resp.ok) {
+        // aggiungere refresh commenti
+        alert("Post effettuato");
+      } else {
+        throw new Error("Errore nel post");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    postComment();
+  };
+
   return (
     <>
       <div className="d-flex gap-2 my-3">
         <ProfilePic small position={""} />
-        <Form className="w-100">
+        <Form className="w-100" onSubmit={e => handleSubmit(e)}>
           <div className="d-flex flex-column align-items-start gap-2">
             <Form.Control
               id="add-comment-component"
