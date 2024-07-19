@@ -6,7 +6,7 @@ import LinkedinNews from "./LinkedinNews";
 import HomeFooter from "./HomeFooter";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getPostsAction } from "../redux/actions";
+import { getCommentsAction, getPostsAction } from "../redux/actions";
 import PostComponent from "./PostComponent";
 import AddPostComponent from "./AddPostComponent";
 import EditPostModal from "./EditPostModal";
@@ -26,6 +26,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getPostsAction());
+    dispatch(getCommentsAction())
   }, []);
   return (
     <>

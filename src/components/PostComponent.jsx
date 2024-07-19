@@ -5,6 +5,7 @@ import { GlobeAmericas, Pencil } from "react-bootstrap-icons";
 import InteractionComponent from "./InteractionComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPostAction, showEditPostOnAction } from "../redux/actions";
+import CommentsComponent from "./CommentsComponent";
 import AddCommentComponent from "./AddCommentComponent";
 import { useEffect, useState } from "react";
 
