@@ -50,7 +50,11 @@ const AddExperienceForm = () => {
           addImage(data._id);
         }
         dispatch(getExperiencesAction());
-        setImage("");
+        if (image) {
+          setImage("");
+        } else {
+          handleClose();
+        }
         setFile(null);
         setArea("");
         setCompany("");

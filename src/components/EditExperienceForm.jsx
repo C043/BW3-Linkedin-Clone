@@ -94,7 +94,6 @@ const EditExperienceForm = ({ id }) => {
       );
       if (resp.ok) {
         dispatch(getExperiencesAction());
-        handleClose();
       } else {
         throw new Error("Errore nel post");
       }
@@ -109,6 +108,7 @@ const EditExperienceForm = ({ id }) => {
     if (image) {
       addImage();
     }
+    handleClose();
   };
 
   useEffect(() => {
