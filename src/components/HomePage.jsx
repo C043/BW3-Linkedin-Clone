@@ -11,6 +11,7 @@ import PostComponent from "./PostComponent";
 import AddPostComponent from "./AddPostComponent";
 import EditPostModal from "./EditPostModal";
 import ErrorComponent from "./ErrorComponent";
+import EditCommentModal from "./EditCommentModal";
 import SuccessComponent from "./SuccessComponent";
 
 const HomePage = () => {
@@ -27,6 +28,7 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(getPostsAction());
     dispatch(getCommentsAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
@@ -81,6 +83,7 @@ const HomePage = () => {
         </Col>
       </Row>
       <EditPostModal id={id} />
+      <EditCommentModal />
     </>
   );
 };

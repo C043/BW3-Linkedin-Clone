@@ -1,5 +1,6 @@
 import {
   GET_COMMENTS,
+  SELECT_COMMENT,
   HAS_COMMENTS_ERROR_OFF,
   HAS_COMMENTS_ERROR_ON,
   IS_COMMENTS_LOADING_OFF,
@@ -10,6 +11,7 @@ const initialState = {
   content: [],
   isLoading: true,
   hasError: false,
+  selectedComment: null,
 };
 
 const commentsReducer = (state = initialState, action) => {
@@ -38,6 +40,11 @@ const commentsReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: action.payload,
+      };
+    case SELECT_COMMENT:
+      return {
+        ...state,
+        selectedComment: action.payload,
       };
 
     default:
