@@ -6,6 +6,7 @@ import showModalReducer from "../reducer/showModalReducer";
 import itemSelectedReducer from "../reducer/itemSelectedReducer";
 import postsReducer from "../reducer/postsReducer";
 import jobReducer from "../reducer/jobReducer";
+import commentsReducer from "../reducer/commentsReducer";
 
 const rootReducer = combineReducers({
   profile: profileReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   item: itemSelectedReducer,
   posts: postsReducer,
   jobs: jobReducer,
+  comments: commentsReducer
 });
 
 const store = configureStore({

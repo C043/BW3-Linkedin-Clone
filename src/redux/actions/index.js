@@ -6,6 +6,7 @@ export const GET_USERS_LIST = "GET_USERS_LIST";
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
 export const GET_POSTS = "GET_POSTS";
 export const GET_JOBS = "GET_JOBS";
+export const GET_COMMENTS = "GET_COMMENTS"
 export const SHOW_EXPERIENCE_ON = "SHOW_EXPERIENCE_ON";
 export const SHOW_EXPERIENCE_OFF = "SHOW_EXPERIENCE_OFF";
 export const SHOW_EDIT_EXPERIENCE_ON = "SHOW_EDIT_EXPERIENCE_ON";
@@ -171,6 +172,29 @@ export const getJobsAction = (query = "", company = "", category = "") => {
     }
   };
 };
+
+export const getCommentsAction = () => {
+  return async (dispatch) => {
+    try {
+
+      const resp = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
+        method: "GET",
+        headers: {
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjlhMTJmMjhmMDYyYTAwMTVlZTc1YmYiLCJpYXQiOjE3MjEzNzM0MjYsImV4cCI6MTcyMjU4MzAyNn0.FZQUQAHLDIc1JTRKVR4OtOCW_f4yFeXw9tFDFVqRIbc'
+        },
+      });
+
+      if (resp.ok) {
+        const comments = await resp.json();
+        dispatch({ type: GET_COMMENTS, payload: comments });
+      } else {
+        throw new Error("Errore nel reperimento dei lavori");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
 
 export const showExperienceOnAction = () => ({ type: SHOW_EXPERIENCE_ON, payload: true });
 export const showExperienceOffAction = () => ({ type: SHOW_EXPERIENCE_OFF, payload: false });

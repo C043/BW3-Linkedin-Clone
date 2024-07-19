@@ -5,6 +5,7 @@ import { GlobeAmericas, Pencil } from "react-bootstrap-icons";
 import InteractionComponent from "./InteractionComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPostAction, showEditPostOnAction } from "../redux/actions";
+import CommentsComponent from "./CommentsComponent";
 
 const PostComponent = ({ id, userImage, username, text, date, image }) => {
   const user = useSelector(state => state.profile.content);
@@ -32,6 +33,7 @@ const PostComponent = ({ id, userImage, username, text, date, image }) => {
         <p className="my-2 break">{text}</p>
         {image && <Image src={image} alt="post-image" className="image-fluid" width={"100%"} />}
         <InteractionComponent />
+        <CommentsComponent />
       </>
     )
   );
