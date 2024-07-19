@@ -15,6 +15,8 @@ import {
   SHOW_EDIT_PROFILE_PIC_ON,
   SHOW_EXPERIENCE_OFF,
   SHOW_EXPERIENCE_ON,
+  SHOW_SUCCESS_OFF,
+  SHOW_SUCCESS_ON,
 } from "../actions";
 
 const initialState = {
@@ -25,7 +27,8 @@ const initialState = {
   addPost: false,
   editPost: false,
   companyDes: false,
-  editComment: false
+  editComment: false,
+  successAlert: false,
 };
 
 const showModalReducer = (state = initialState, action) => {
@@ -104,16 +107,23 @@ const showModalReducer = (state = initialState, action) => {
     case SHOW_EDIT_COMMENT_ON:
       return {
         ...state,
-        editComment: action.payload
+        editComment: action.payload,
       };
     case SHOW_EDIT_COMMENT_OFF:
       return {
         ...state,
-        editComment: action.payload
-      }
-
-
-
+        editComment: action.payload,
+      };
+    case SHOW_SUCCESS_ON:
+      return {
+        ...state,
+        successAlert: action.payload,
+      };
+    case SHOW_SUCCESS_OFF:
+      return {
+        ...state,
+        successAlert: action.payload,
+      };
     default:
       return state;
   }

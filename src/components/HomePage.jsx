@@ -32,7 +32,6 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      <SuccessComponent />
       <Row>
         <Col xs="12" md="4" lg="3">
           {isProfileLoading && (

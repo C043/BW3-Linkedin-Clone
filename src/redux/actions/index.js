@@ -23,6 +23,8 @@ export const SHOW_COMPANY_DES_ON = "SHOW_COMPANY_DES_ON";
 export const SHOW_COMPANY_DES_OFF = "SHOW_COMPANY_DES_OFF";
 export const SHOW_EDIT_COMMENT_ON = "SHOW_EDIT_COMMENT_ON";
 export const SHOW_EDIT_COMMENT_OFF = "SHOW_EDIT_COMMENT_OFF";
+export const SHOW_SUCCESS_ON = "SHOW_SUCCESS_ON";
+export const SHOW_SUCCESS_OFF = "SHOW_SUCCESS_OFF";
 
 export const SELECT_EXP = "SELECT_EXP";
 export const SELECT_POST = "SELECT_POST";
@@ -243,6 +245,9 @@ export const showCompanyDestOffAction = () => ({ type: SHOW_COMPANY_DES_OFF, pay
 
 export const showCommentModalOnAction = () => ({ type: SHOW_EDIT_COMMENT_ON, payload: true });
 export const showCommentModalOffAction = () => ({ type: SHOW_EDIT_COMMENT_OFF, payload: false });
+
+export const showSuccessOnAction = () => ({ type: SHOW_SUCCESS_ON, payload: true });
+export const showSuccessOffAction = () => ({ type: SHOW_SUCCESS_OFF, payload: false });
 
 export const selectExpAction = id => ({ type: SELECT_EXP, payload: id });
 

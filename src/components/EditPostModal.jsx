@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostsAction, showEditPostOffAction } from "../redux/actions";
+import { getPostsAction, showEditPostOffAction, showSuccessOffAction, showSuccessOnAction } from "../redux/actions";
 import ProfilePic from "./ProfilePic";
 import { useEffect, useState } from "react";
 import { token } from "../../token";
@@ -46,7 +46,10 @@ const EditPostModal = ({ id }) => {
       if (resp.ok) {
         dispatch(getPostsAction());
         handleClose();
-        alert("Post eliminato");
+        dispatch(showSuccessOnAction());
+        setTimeout(() => {
+          dispatch(showSuccessOffAction());
+        }, 5000);
       } else {
         throw new Error("Errore nel ...");
       }
@@ -88,7 +91,10 @@ const EditPostModal = ({ id }) => {
       if (resp.ok) {
         const post = await resp.json();
         setText(post.text);
-        alert("Modificato con successo");
+        dispatch(showSuccessOnAction());
+        setTimeout(() => {
+          dispatch(showSuccessOffAction());
+        }, 5000);
       } else {
         throw new Error("Errore nel reperimento del post");
       }

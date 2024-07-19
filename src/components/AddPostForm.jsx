@@ -1,6 +1,6 @@
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostsAction, showAddPostOffAction } from "../redux/actions";
+import { getPostsAction, showAddPostOffAction, showSuccessOffAction, showSuccessOnAction } from "../redux/actions";
 import { useState } from "react";
 import ProfilePic from "./ProfilePic";
 import { token } from "../../token";
@@ -35,11 +35,14 @@ const AddPostForm = () => {
         if (image) {
           addImage(data._id);
         }
-        alert("Post effettuato correttamente");
+        dispatch(showSuccessOnAction());
         dispatch(getPostsAction());
         setImage("");
         setFile(null);
         handleClose();
+        setTimeout(() => {
+          dispatch(showSuccessOffAction());
+        }, 5000);
       } else {
         throw new Error("Errore nel post");
       }

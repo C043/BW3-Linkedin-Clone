@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getExperiencesAction, showDelExpOffAction } from "../redux/actions";
+import { getExperiencesAction, showDelExpOffAction, showSuccessOffAction, showSuccessOnAction } from "../redux/actions";
 import { useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { userId } from "../../userId";
@@ -41,8 +41,11 @@ const DeleteExperienceModal = ({ id }) => {
       });
       if (resp.ok) {
         dispatch(getExperiencesAction());
-        alert("Esperienza eliminata con successo!");
+        dispatch(showSuccessOnAction());
         handleClose();
+        setTimeout(() => {
+          dispatch(showSuccessOffAction());
+        }, 5000);
       } else {
         throw new Error("Errore nel delete");
       }

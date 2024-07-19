@@ -3,7 +3,12 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { userId } from "../../userId";
 import { token } from "../../token";
-import { getExperiencesAction, showEditExpOffAction } from "../redux/actions";
+import {
+  getExperiencesAction,
+  showEditExpOffAction,
+  showSuccessOffAction,
+  showSuccessOnAction,
+} from "../redux/actions";
 
 const EditExperienceForm = ({ id }) => {
   const show = useSelector(state => state.show.editExp);
@@ -63,7 +68,10 @@ const EditExperienceForm = ({ id }) => {
       });
       if (resp.ok) {
         dispatch(getExperiencesAction());
-        alert("Modifica effettuata");
+        dispatch(showSuccessOnAction());
+        setTimeout(() => {
+          dispatch(showSuccessOffAction());
+        }, 5000);
       } else {
         throw new Error("Errore nel post");
       }

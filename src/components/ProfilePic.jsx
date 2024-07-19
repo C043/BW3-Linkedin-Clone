@@ -2,7 +2,13 @@ import { Button, Form, Image, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { CameraFill, EyeFill, ImageFill, PencilFill, Trash2Fill } from "react-bootstrap-icons";
-import { getUserAction, showPicOffAction, showPicOnAction } from "../redux/actions";
+import {
+  getUserAction,
+  showPicOffAction,
+  showPicOnAction,
+  showSuccessOffAction,
+  showSuccessOnAction,
+} from "../redux/actions";
 import { token } from "../../token";
 import { userId } from "../../userId";
 import { useNavigate } from "react-router-dom";
@@ -39,9 +45,12 @@ const ProfilePic = ({ small, position, edit }) => {
       });
 
       if (response.ok) {
-        alert("Immagine modificata con successo");
+        dispatch(showSuccessOnAction());
         dispatch(getUserAction());
         dispatch(showPicOffAction());
+        setTimeout(() => {
+          dispatch(showSuccessOffAction());
+        }, 5000);
       } else {
         alert("Error uploading image", response.statusText);
       }

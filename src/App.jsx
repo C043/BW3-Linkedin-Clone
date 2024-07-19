@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUserAction } from "./redux/actions";
 import JobsPage from "./components/JobsPage";
@@ -14,6 +14,8 @@ import SuccessComponent from "./components/SuccessComponent";
 function App() {
   const dispatch = useDispatch();
 
+  const success = useSelector(state => state.show.successAlert);
+
   useEffect(() => {
     dispatch(getUserAction());
   }, []);
@@ -21,8 +23,8 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <SuccessComponent />;
-      <Container>
+      <Container className="position-relative">
+        {success && <SuccessComponent />}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/me" element={<ProfilePage />} />

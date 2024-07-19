@@ -3,7 +3,12 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { userId } from "../../userId";
 import { token } from "../../token";
-import { getExperiencesAction, showExperienceOffAction } from "../redux/actions";
+import {
+  getExperiencesAction,
+  showExperienceOffAction,
+  showSuccessOffAction,
+  showSuccessOnAction,
+} from "../redux/actions";
 
 const AddExperienceForm = () => {
   const show = useSelector(state => state.show.experience);
@@ -47,7 +52,17 @@ const AddExperienceForm = () => {
         dispatch(getExperiencesAction());
         setImage("");
         setFile(null);
-        alert();
+        setArea("");
+        setCompany("");
+        setChecked(true);
+        setDescription("");
+        setStartDate("");
+        setEndDate("");
+        setRole("");
+        dispatch(showSuccessOnAction());
+        setTimeout(() => {
+          dispatch(showSuccessOffAction());
+        }, 5000);
       } else {
         throw new Error("Errore nel post");
       }
