@@ -47,7 +47,7 @@ const AddExperienceForm = () => {
         dispatch(getExperiencesAction());
         setImage("");
         setFile(null);
-        alert("Post effettuato");
+        alert();
       } else {
         throw new Error("Errore nel post");
       }
@@ -81,7 +81,6 @@ const AddExperienceForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(experience);
     postExperience(experience);
   };
 

@@ -109,3 +109,33 @@ body {
 .btn-outline-primary {
   border-radius: 23px;
 }
+
+.success-alert {
+  bottom: 0;
+  transition: all 500ms;
+  animation: success linear 5s;
+  animation-fill-mode: both;
+  z-index: 999999;
+}
+
+@keyframes success {
+  0% {
+    opacity: 0;
+    bottom: 50px;
+  }
+  20% {
+    opacity: 1;
+    bottom: 0;
+  }
+  50% {
+    opacity: 1;
+    bottom: 0;
+  }
+  80% {
+    bottom: 25px;
+  }
+  100% {
+    opacity: 0;
+    bottom: 50px;
+  }
+}

@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getUserAction } from "./redux/actions";
 import JobsPage from "./components/JobsPage";
+import SuccessComponent from "./components/SuccessComponent";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <SuccessComponent />;
       <Container>
         <Routes>
           <Route path="/" element={<HomePage />} />
