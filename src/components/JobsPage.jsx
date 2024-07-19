@@ -5,7 +5,7 @@ import { PencilSquare } from "react-bootstrap-icons";
 import HomeFooter from "./HomeFooter";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getJobsAction, selectedJobHeaderAction } from "../redux/actions";
+import { selectedJobHeaderAction } from "../redux/actions";
 import JobComponent from "./JobComponent";
 import ErrorComponent from "./ErrorComponent";
 import JobDescritpionModal from "./JobDescriptionModal";
@@ -18,7 +18,6 @@ const JobsPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getJobsAction());
     dispatch(selectedJobHeaderAction("Jobs"));
   }, []);
 

@@ -165,7 +165,7 @@ export const getJobsAction = (query = "", company = "", category = "") => {
   return async dispatch => {
     dispatch(isJobsLoadingOnAction());
     dispatch(hasJobErrorOffAction());
-
+    console.log("start");
     try {
       let url = "https://strive-benchmark.herokuapp.com/api/jobs";
       if (query) {

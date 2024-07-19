@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getCommentsAction, getPostsAction, getUserAction } from "./redux/actions";
+import { getCommentsAction, getJobsAction, getPostsAction, getUserAction } from "./redux/actions";
 import JobsPage from "./components/JobsPage";
 import SuccessComponent from "./components/SuccessComponent";
 
@@ -18,6 +18,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getUserAction());
+    dispatch(getJobsAction());
     setInterval(() => {
       dispatch(getPostsAction());
       dispatch(getCommentsAction());
