@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import "react-loading-skeleton/dist/skeleton.css";
 import ProfilePage from "./components/ProfilePage";
 import { Container } from "react-bootstrap";
 import NavBar from "./components/NavBar";
@@ -19,8 +20,8 @@ function App() {
   useEffect(() => {
     dispatch(getUserAction());
     dispatch(getJobsAction());
+    dispatch(getPostsAction());
     setInterval(() => {
-      dispatch(getPostsAction());
       dispatch(getCommentsAction());
     }, 60000);
   }, []);

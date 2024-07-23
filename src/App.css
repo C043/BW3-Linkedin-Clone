@@ -2,7 +2,7 @@ body {
   background-color: #f4f2ee;
 
   .hero-header {
-    #profile-pic {
+    .profile-pic {
       left: 5%;
       top: 50%;
     }

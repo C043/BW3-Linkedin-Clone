@@ -124,13 +124,12 @@ const ProfilePic = ({ small, position, edit }) => {
         </Modal>
 
         <Image
-          id="profile-pic"
           src={profile.image}
           alt="profile-picture"
           className={
             small
-              ? `rounded-circle flex-shrink-0 object-fit-cover border border-white border-3 ${position}`
-              : `rounded-circle flex-shrink-0 object-fit-cover border border-white border-5 ${position}`
+              ? `rounded-circle flex-shrink-0 object-fit-cover border border-white border-3 profile-pic ${position}`
+              : `rounded-circle flex-shrink-0 object-fit-cover border border-white border-5 profile-pic ${position}`
           }
           width={small ? "60px" : "152px"}
           height={small ? "60px" : "152px"}

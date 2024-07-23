@@ -12,7 +12,8 @@ import AddPostComponent from "./AddPostComponent";
 import EditPostModal from "./EditPostModal";
 import ErrorComponent from "./ErrorComponent";
 import EditCommentModal from "./EditCommentModal";
-import SuccessComponent from "./SuccessComponent";
+import Skeleton from "react-loading-skeleton";
+import HeroLoadingComponent from "./HeroLoadingComponent";
 
 const HomePage = () => {
   const posts = useSelector(state => state.posts.content);
@@ -34,11 +35,7 @@ const HomePage = () => {
     <>
       <Row>
         <Col xs="12" md="4" lg="3">
-          {isProfileLoading && (
-            <div className="d-flex justify-content-center mt-5">
-              <Spinner variant="primary" />
-            </div>
-          )}
+          {isProfileLoading && <ContentBox content={<HeroLoadingComponent />} noHeader />}
           {hasProfileError === false && (
             <div className="sticky-under-nav">
               <Hero />
