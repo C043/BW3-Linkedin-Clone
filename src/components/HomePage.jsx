@@ -12,9 +12,9 @@ import AddPostComponent from "./AddPostComponent";
 import EditPostModal from "./EditPostModal";
 import ErrorComponent from "./ErrorComponent";
 import EditCommentModal from "./EditCommentModal";
-import Skeleton from "react-loading-skeleton";
 import HeroLoadingComponent from "./HeroLoadingComponent";
 import InsighLoadingComponent from "./InsightLoadingComponent";
+import PostLoadingComponent from "./PostLoadingComponent";
 
 const HomePage = () => {
   const posts = useSelector(state => state.posts.content);
@@ -53,8 +53,10 @@ const HomePage = () => {
         <Col xs="12" md="8" lg="5" xl="6">
           <ContentBox content={<AddPostComponent />} noHeader />
           {isPostsLoading && (
-            <div className="d-flex justify-content-center mt-5">
-              <Spinner variant="primary" />
+            <div>
+              <ContentBox content={<PostLoadingComponent />} noHeader />
+              <ContentBox content={<PostLoadingComponent />} noHeader />
+              <ContentBox content={<PostLoadingComponent />} noHeader />
             </div>
           )}{" "}
           {hasPostError === false &&
