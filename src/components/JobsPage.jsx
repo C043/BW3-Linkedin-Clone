@@ -9,6 +9,7 @@ import { selectedJobHeaderAction } from "../redux/actions";
 import JobComponent from "./JobComponent";
 import ErrorComponent from "./ErrorComponent";
 import JobDescritpionModal from "./JobDescriptionModal";
+import JobLoadingComponent from "./JobLoadingComponent";
 
 const JobsPage = () => {
   const jobHeader = useSelector(state => state.item.selectedJobHeader);
@@ -39,8 +40,11 @@ const JobsPage = () => {
       <Col xs="12" md="8" lg="5" xl="6">
         <h1 className="mt-3">{jobHeader}</h1>
         {isLoading && (
-          <div className="d-flex justify-content-center mt-5">
-            <Spinner variant="primary" />
+          <div>
+            <ContentBox content={<JobLoadingComponent />} noHeader />
+            <ContentBox content={<JobLoadingComponent />} noHeader />
+            <ContentBox content={<JobLoadingComponent />} noHeader />
+            <ContentBox content={<JobLoadingComponent />} noHeader />
           </div>
         )}
         {hasError === false &&
