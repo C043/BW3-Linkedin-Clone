@@ -14,6 +14,7 @@ import ErrorComponent from "./ErrorComponent";
 import EditCommentModal from "./EditCommentModal";
 import Skeleton from "react-loading-skeleton";
 import HeroLoadingComponent from "./HeroLoadingComponent";
+import InsighLoadingComponent from "./InsightLoadingComponent";
 
 const HomePage = () => {
   const posts = useSelector(state => state.posts.content);
@@ -35,8 +36,13 @@ const HomePage = () => {
     <>
       <Row>
         <Col xs="12" md="4" lg="3">
-          {isProfileLoading && <ContentBox content={<HeroLoadingComponent />} noHeader />}
-          {hasProfileError === false && (
+          {isProfileLoading && (
+            <>
+              <ContentBox content={<HeroLoadingComponent />} noHeader />
+              <ContentBox content={<InsighLoadingComponent />} noHeader />
+            </>
+          )}
+          {hasProfileError === false && isProfileLoading === false && (
             <div className="sticky-under-nav">
               <Hero />
               <ContentBox content={<HomeInsight />} noHeader />
