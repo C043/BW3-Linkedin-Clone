@@ -11,6 +11,8 @@ import Hero from "./Hero";
 import FooterComponent from "./FooterComponent";
 import SideBar from "./SideBar";
 import ErrorComponent from "./ErrorComponent";
+import BigHeroLoadingComponent from "./BigHeroLoadingComponent";
+import InsighLoadingComponent from "./InsightLoadingComponent";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -26,11 +28,7 @@ const ProfilePage = () => {
   return (
     <Row>
       <Col xs="12" md="7" lg="8">
-        {isLoading && (
-          <div className="d-flex justify-content-center align-items-center mt-5">
-            <Spinner variant="primary" />
-          </div>
-        )}
+        {isLoading && <ContentBox content={<BigHeroLoadingComponent />} noHeader />}
         {hasError === false && (
           <>
             <Hero big />
@@ -43,11 +41,7 @@ const ProfilePage = () => {
         {hasError && <ErrorComponent />}
       </Col>
       <Col md="5" lg="4" className="d-none d-md-block">
-        {isLoading && (
-          <div className="d-flex justify-content-center align-items-center mt-5">
-            <Spinner variant="primary" />
-          </div>
-        )}
+        {isLoading && <ContentBox content={<InsighLoadingComponent />} noHeader />}
         {hasError === false && <SideBar />}
         {hasError && <ErrorComponent />}
       </Col>
